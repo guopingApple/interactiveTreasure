@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>特“粽”部队</title>
+		<style>
+			body,div,p{margin: 0;}html,body{width: 100%;height: 100%;overflow: hidden;}body{background: url(images/bg.png) no-repeat;background-size: cover;}
+			.boss{width: 60px;height: 60px;background:url(images/zongzi.png) no-repeat;background-size: contain;position: absolute;top: 20%;left: 60%;}
+			.gameove{margin-bottom: -300px; -webkit-transform:scale(0);-webkit-transition:all 2s ease 0s;}.goaway{-webkit-transform: translate(-1000px, -2000px);-webkit-transition: all 10s ease 0s;}.shut{background: #FF0000;}
+			.dan{width: 60px;height: 60px;position: absolute;left: -100px;top: -50px;}
+			.dan1{opacity: 0;width: 30px;height: 30px;background: url(images/zongzi.png) no-repeat center center;background-size: cover;position: absolute;left: 50%;top: -50px;margin: -90px 0 0 -55px;}.dan2{opacity: 0;width: 30px;height: 30px;background: url(images/jiu.png) no-repeat center center;background-size: cover;position: absolute;left: 50%;top: -50px;margin: -90px 0 0 -55px;}.opc{opacity: 1;}.frontPage{background: url(images/bg1.png) no-repeat;background-size: cover;width: 100%;height: 100%;position: relative;z-index: 10;}.startGame{-webkit-animation: moving 2s ease 0s infinite;background: #fff;display: block;width: 50%;height: 40px;line-height: 40px;position: absolute;left: 25%;bottom: 20px;border-radius: 30px;text-align: center;}@-webkit-keyframes moving{0%{transform: translateY(0px);}50%{transform: translateY(-10px);}100%{transform: translateY(0px);}}.bombBox{transition: top 2s ease 0.5s;background: url(images/tips.png) no-repeat;background-size: cover;width: 258px;height: 265px;position: absolute;left: 50%;top: -150%;margin: -132px 0 0 -129px;}.showbox{top: 50%;}.pigLife{margin: 15px 0 0 20%;height: 15px;width: 200px;color: #fff;position: relative;}.pigLife:before{content: '得分： ';color: #000;padding: 0 5px 0 0;top: -2px;width: 100%;position: absolute;right: 200px;display: inline-block;text-align: right;}.pigLife:after{content: '';width: 200px;height: 15px;position: absolute;left: 0;}#scores{width: 200px;display: block;height: 15px;position: absolute;z-index: 10;color: #000;}.changer{background: url(images/chang1.png) no-repeat;background-size: contain;width: 83px;height: 113px;position: absolute;left: 50%;bottom: 0;margin: 0 0 0 -42px;}.changershut{background: url(images/chang2.png) no-repeat;background-size: contain;}.pos_r{position: relative;height: 100%;}.pos_r p{font: 18px/28px "microsoft yahei";color: #df1f15;padding: 70px 0 0;text-align: center;}.btn_again{height: 35px;position: absolute;left: 18px;bottom: 20px;width: 100px;text-align: center;text-indent: -1000px;}.btn_share{height: 35px;position: absolute;right: 18px;bottom: 20px;width: 100px;text-align: center;text-indent: -1000px;}.getGood{display: block;width: 132px;overflow: hidden;line-height: 43px;height: 43px;text-align: center;text-indent: -1000px;background: url(images/redbox.png) no-repeat;background-size: 100% 100%;margin: 15px auto 0;}.time{padding: 20px 0 0 15px;}.share{display: none;width: 100%;height: 100%;position: absolute;z-index: 1000;background: url(images/share.png) no-repeat center center;background-size: 100% 100%;}.box_zongzi{position: relative;}.zongzi{position: absolute;display: none;width: 20px;height: 20px;background: url(images/zongzi.png) no-repeat center center;background-size: cover;}
+			.haveget{width: 60px;height: 60px;background: url(images/zongzi.png) no-repeat center 0;background-size:100% auto;-webkit-transition: -webkit-transform 1s linear 0s;}
+			.dan:before{width: 30px;height: 55px;display:block;content: '';float: left;background: url(images/zongzi2_01.png) no-repeat;background-size:contain;-webkit-transform: rotate(-30deg);-webkit-transform-origin: right bottom;}
+			.dan:after{width: 30px;height: 55px;display:block;content: '';float: left;background: url(images/zongzi2_02.png) no-repeat;background-size:contain;-webkit-transform: rotate(30deg);-webkit-transform-origin: left bottom;}
+			.haveget.dan:before{-webkit-transform: rotate(0);}
+			.haveget.dan:after{-webkit-transform: rotate(0);}
+			.boxall{ position: absolute; top: 0;height: 100%;}
+		</style>
+	</head>
+	<body class="canClick">
+		<div class="frontPage">
+			<a class="startGame">开始游戏</a>
+		</div>
+		<div class="share"></div>
+		<div class="bombBox">
+			<div class='pos_r'>
+				<p onclick="location.reload()">太棒了！<br />您游戏得分<span id="secondLong"></span></p>
+				<a href="#" class="getGood">查看排名</a>
+				<a class="btn_again" onclick="location.reload()">再玩一次</a>
+				<a class="btn_share">分享</a>
+			</div>
+		</div>
+		<div class="bombBox">
+			<div class='pos_r'>
+				<p onclick="location.reload()">你没有保护好嫦娥姐姐！</p>
+				<a class="btn_again" onclick="location.reload()">再玩一次</a>
+				<a class="btn_share">分享</a>
+			</div>
+		</div>
+		<p class="pigLife"><span id="scores"></span></p>
+		<p class="time">时间：<span id='t1'>30</span></p>
+		<div class="boss">
+		</div>
+		<div class="boxall">
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+		</div>
+		<script>
+			//产生一个对象 这个对象就是屈原（person_quyuan）  他有公共属性和公共方法（my）
+			var o_globle = function(person_quyuan, my) {//person_quyuan.id_qy获取到屈原这个dom
+				var that = {},
+					scores = 0,
+					seconds = 0,
+					o_width = person_quyuan.id_qy.offsetWidth,//person_quyuan的宽度
+					o_height = person_quyuan.id_qy.offsetHeight,//person_quyuan的高度
+					boss = person_quyuan.id_qy,//此时boss代表屈原
+					ddDom = document.getElementsByClassName('boxall')[0].querySelectorAll('div'),//此处的boxall div应该用参数传递比较好 解耦
+					zongzi = document.querySelectorAll('.zongzi'),//此处zongzi 道理同上
+					pagex, pagey,ebottom, scores_box = document.querySelector('#scores'),//此处zongzi 道理同上
+					milliTimer,mTimer, timechange = 30,bossTimer,
+					t1 = document.getElementById('t1'),//此处zongzi 道理同上
+				secondLong = document.querySelector('#secondLong');//此处zongzi 道理同上
+				var changer = document.querySelector('.changer');//此处zongzi 道理同上
+				//以上为私有变量
+				var game_start = document.querySelector('.startGame');//此处zongzi 道理同上
+				//目标的共有属性和方法
+				var my = my || {
+						w_width: window.innerWidth,//窗口的宽度
+						w_height: window.innerHeight,//窗口的高度
+						count: 0,
+						eventarr: [],
+						domshowvalue: document.getElementById('showvalue'),
+						int: function() {//初始化body的宽高
+							document.body.style.width = my.w_width + 'px';
+							document.body.style.height = my.w_height + 'px';
+							boss.style.top = Math.ceil(my.w_height*2/10) + 'px';
+							boss.style.left = Math.ceil((my.w_width-o_width)/2) + 'px';
+							t1.innerHtml = timechange;
+						},
+						//dd在此遊戲中表示移動的屈原
+						dd: function(spec1, my1){
+							var that = {},
+								xpos = [1/4, 3/5, 4/5],
+								objvalue = [100, 20, -10, 20, -10, 20, -10, 20, 0, 0];
+							that.x = -100;
+							that.width = spec1.domId.offsetWidth;
+							spec1.domId.style.top = (my.w_height*8/10) + 'px';
+							that.haveadd = false;
+							//that.timer2 这个属性 表示对象可以自己走
+							that.timer2 = setInterval(function(){
+								that.x += spec1.x_speed;
+								that.y = parseInt(spec1.domId.style.top);
+								spec1.domId.style.left = that.x + 'px';
+								person_quyuan.x = parseInt(person_quyuan.id_qy.style.left);
+								person_quyuan.y = parseInt(person_quyuan.id_qy.style.top);
+								var distanceY = person_quyuan.y+o_height-that.y;
+								//接到粽子接到粽子接到粽子接到粽子接到粽子接到粽子接到粽子接到粽子接到粽子接到粽子
+								if(Math.abs((person_quyuan.x+o_width/2 ) - (that.x+that.width/2)) < 30 && Math.abs(distanceY)<50) {
+									if(timechange>0 && !that.haveadd){scores += 100;that.haveadd = true;}
+									scores_box.innerHTML = scores;
+									boss.style.display = 'none';
+									if(timechange>0){
+										spec1.domId.className = 'dan haveget';
+										spec1.domId.style.top = (Math.ceil(my.w_height*8/10) +20) + 'px';
+									}
+									my.eventarr[spec1.i] = null;
+								}
+								//dd回到原点
+								if (that.x > parseInt(my.w_width)) {
+									clearInterval(that.timer2);
+									spec1.domId.style.left = '-100px';
+									my.eventarr[spec1.i] = null;
+								} //射出界面 回到原点
+							}, 30);
+							return that;
+						}
+					} //公共的方法 属性end
+				my.int();
+				var i = -1;
+				//游戏结束gameovergameovergameovergameovergameovergameover
+				var fn_gameover = function() {
+					var boxshow=document.getElementsByClassName('boxall')[0].querySelectorAll('.opc');
+					for(var i=0;i<boxshow.length;i++){
+						boxshow[i].className='';
+					}
+					clearInterval(that.timer2);
+					clearInterval(milliTimer); //游戏结束
+					clearInterval(mTimer);
+					boss.className='boss gameove';
+					person_quyuan.bombBox[0].className = 'bombBox showbox';
+					secondLong.innerHTML=scores;
+					return false;
+				};
+				that.touchstart = document.body.addEventListener('touchstart', function(e){
+					seconds += 1;
+					e = e.changedTouches[0];
+					pagex = e.pageX;
+					pagey = e.pageY;
+					ebottom = parseInt(person_quyuan.id_qy.style.bottom);
+				});
+				that.touchstart = document.body.addEventListener('touchmove', function(e) {
+					e = e.changedTouches[0];
+					var objleft = person_quyuan.id_qy.style.left;
+					event.preventDefault();
+				});
+				that.touchend = document.body.addEventListener('touchend', function(e) {
+					e = e.changedTouches[0];
+					//游戏开始游戏开始游戏开始游戏开始游戏开始游戏开始游戏开始
+					console.log(e.target.className);
+					if (e.target.className == 'startGame') {
+						document.querySelector('.frontPage').style.display = 'none';
+						milliTimer = setInterval(function() {
+							i = i< 50 ? i+1 : -1;
+							if (!my.eventarr[i]) {
+								my.eventarr[i] = my.dd({
+									domId: ddDom[i],
+									time: 40,
+									value: parseInt(Math.random() * 10),
+									d_direction: parseInt(Math.random() * 3),
+									x_speed: 4,
+									i: i
+								});
+							}
+							if(!mTimer){
+								mTimer= setInterval(function(){
+								timechange-=1;
+								if(timechange<=5){t1.style.color='#FF0000'};
+								t1.innerHTML = Math.ceil(timechange);
+								if(timechange<=0){fn_gameover()}
+								},1000)
+							}
+						}, 1500)
+					}
+					if (e.target.className == 'canClick' || e.target.className == 'boxall'){
+						bossTimer = setInterval(function(){
+							document.body.className= '';
+							var y = parseInt(boss.style.top);
+							y+=15;
+							boss.style.top = y + 'px';
+							if(y>my.w_height){
+								clearInterval(bossTimer);
+								boss.style.top = Math.ceil(my.w_height*2/10) + 'px';
+								boss.style.display = 'block';
+								document.body.className= 'canClick';
+							}
+						},30)
+					}
+					var sharebox = document.querySelector('.share');
+					if (e.target.className == 'btn_share') {
+						sharebox.style.display = 'block';
+					} else {
+						sharebox.style.display = 'none';
+					}
+				});
+				return that;
+			}
+			var qy1 = o_globle({
+				dx: 0,
+				dy: 0,
+				d_direction: 0,
+				x: 50,
+				y: 100,
+				time: 30,
+				pigLife: document.querySelector('.pigLife'),
+				bombBox: document.querySelectorAll('.bombBox'),
+				id_qy: document.querySelector('.boss'),
+				getMillisecond: function() {
+					return startTime = new Date().getTime();
+				}
+			});
+		</script>
+	</body>
+
+</html>

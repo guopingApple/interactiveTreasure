@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" /> 
+	  	<meta name="format-detection" content="telephone=no" /> 
+	  	<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+	  	<meta content="yes" name=" apple-mobile-web-app-capable" /> 
+	  	<meta http-equiv="pragma" content="no-cache" /> 
+		<title>建设银行</title>
+		<link rel="stylesheet" href="css/animate-min.css" />
+  	<link rel="stylesheet" href="css/jianshe2.css" />
+	</head>
+	<body>
+		<section class="sec"><img src="images2/b01.jpg" width="100%" />
+			<p class="p_abs chahb">
+				<img src="images2/chahb.png"/>
+				<img src="images2/cha1.png" class="cha1" />
+				<img src="images2/cha2.png" class="cha2" />
+				<img src="images2/cha3.png" class="cha3" />
+			</p>
+			<img src="images2/1p1.png" class="p_abs img1-1 zoomIn animated"  />
+			<p class="p_abs img1-2 person">
+				<img src="images2/1p2.png"  />
+				<img src="images2/1p2eye1.png" class="imgEyes eye1" />
+				<img src="images2/1p2eye2.png" class="imgEyes eye2"/>
+				<img src="images2/1p2eye3.png" class="imgEyes eye3"/>
+				<img src="images2/1p2eye1.png" class="imgEyes eye4"/>
+				<img src="images2/1p2eye2.png" class="imgEyes eye5"/>
+				<img src="images2/1p2eye3.png" class="imgEyes eye6"/>
+			</p>
+			<img src="images2/1p3.png" class="p_abs img1-3 zoomIn animated delay3"  />
+			<p class="p_abs img1-4 intoFloat">
+				<img src="images2/1p4.png" class="imgMonkey" />
+				<img src="images2/1p4fu.png" class="imgFu fadeIn animated delay3" />
+				<img src="images2/1p4head.png" class="imgHead" />
+				<img src="images2/1p4redscarf.png" class="imgScarf" />
+			</p>		
+			<a href="http://wx.jsccb.kliwu.com/App/GameFX.aspx"><img src="images2/btn1.png" class="btn1 p_abs animated pulse infinite" /></a>
+		</section>
+		<section class="sec"><img src="images2/b02.jpg" width="100%" />
+			<img src="images2/redpack1.png" class="imgRed imgRed1" />
+			<img src="images2/redpack2.png" class="imgRed imgRed2" />
+			<img src="images2/redpack3.png" class="imgRed imgRed3" />
+			<img src="images2/2p1.png" class="p_abs img2-1"  />
+			<img src="images2/2p2.png" class="p_abs img2-2"  />
+			<img src="images2/2p3.png" class="p_abs img2-3 imgBiu animated"  />
+			<p class="p_abs img2-4 person">
+				<img src="images2/2p4.png"  />
+				<img src="images2/2p4mouth.png" class="imgMouth" />
+			</p>
+			<p class="p_abs img2-5 person">
+				<img src="images2/2p5.png" class="imgCloud" />
+				<img src="images2/2p5monkey.png" class="imgJump" />
+			</p>
+			<a href="http://wx.jsccb.kliwu.com/App/GameFX.aspx"><img src="images2/btn2.png" class="btn2 p_abs animated pulse infinite" /></a>
+		</section>
+		<section class="sec"><img src="images2/b03.jpg" width="100%" />
+			<p class="p_abs img3-1 person">
+				<img src="images2/3p1.png" />
+				<img src="images2/3p1yuan1.png" class="imgYuan imgYuan1" />
+				<img src="images2/3p1yuan2.png" class="imgYuan imgYuan2" />
+			</p>
+			<img src="images2/3p2.png" class="p_abs img3-2"  />
+			<img src="images2/3p3.png" class="p_abs img3-3"  />
+			<img src="images2/3p4.png" class="p_abs img3-4"  />
+			<a href="http://wx.jsccb.kliwu.com/App/GameFX.aspx"><img src="images2/btn3.png" class="btn3 p_abs animated pulse infinite" /></a>
+		</section>
+		<section><img src="images2/b04.jpg" width="100%" />
+			<img src="images2/4p2.png" class="p_abs img4-1 person"  />
+		</section>
+		<script charset="UTF-8" type="text/javascript" src="js/jquery-1.8.0.js"></script>
+		<script charset="UTF-8" type="text/javascript">
+			$(document).ready(function(){
+				var $section = $('.sec'),posArr=[],len = $section.length;
+				//$section.first().addClass('focus');
+				$section.each(function(e){
+					var $index = $(this).index();
+					posArr[$index] = $(this).offset().top;
+				})
+				window.onscroll =function(){
+					var wTop = document.body.scrollTop;
+					
+					for(var i = 0;i<len;i++){
+						var itop = posArr[i];
+						if(wTop >itop -200){
+							//console.log(itop -150);
+							$section.eq(i).addClass('focus');
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

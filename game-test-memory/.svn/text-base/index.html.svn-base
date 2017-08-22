@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" />
+		<title>考验记忆力！</title>
+		<style>
+			body,div,p{margin:0;}
+			html,body,.content{width:100%; height: 100%; overflow: hidden;}
+			.content{transition: all 3s ease 0s;transform: rotateY(0deg); width: 245px; margin: 50px auto 0;}
+			.content div{ width: 60px;height: 60px; position: absolute;
+			background: #000;border: 1px solid #225566;perspective: 500;-webkit-perspective: 500;}
+			.content span{backface-visibility:hidden; background: #225566;color:#fff; width: 100%; height: 100%;display: block; overflow: hidden; display: block;transition: all 2s linear 0s;}
+			.content .border_select{ border: 1px solid skyblue;}
+			.content .a span{background:url(img/1.jpg) no-repeat; background-size: cover;}
+			.content .b span{background:url(img/2.jpg) no-repeat; background-size: cover;}
+			.content .c span{background:url(img/3.jpg) no-repeat; background-size: cover;}
+			.content .d span{background:url(img/4.jpg) no-repeat; background-size: cover;}
+			.content .e span{background:url(img/5.jpg) no-repeat; background-size: cover;}
+			.content .f span{background:url(img/6.jpg) no-repeat; background-size: cover;}
+			.content .g span{background:url(img/7.jpg) no-repeat; background-size: cover;}
+			.content .h span{background:url(img/8.jpg) no-repeat; background-size: cover;}
+			.tips{ position: absolute; bottom: 20%; text-align: center; width: 100%; text-align: center; transition: opacity 0.5s ease 0s}
+			#reset{ position: absolute; bottom: 10px;}
+		</style>
+	</head>
+	<body>
+		<p>记住水果的位置，十秒后找出要寻找的水果位置，总共需要找出三个水果的位置</p>
+		<div class="content">
+			
+		</div>
+		<p class="tips"></p>
+		<p class="tips2"></p>
+		<a id='reset'>重新开始</a>
+		<script>
+			var memoryGame=function(spec,my){
+				var arrOrigin=[{name:'猕猴桃',idName:'a'},{name:'樱桃',idName:'b'},{name:'芒果',idName:'c'},{name:'苹果',idName:'d'},
+				{name:'榴莲',idName:'e'},{name:'香蕉',idName:'f'},{name:'西瓜',idName:'g'},{name:'梨',idName:'h'}];
+				var arrClone=arrOrigin.concat(arrOrigin),timer1,timer2,timer3,timer4,canClick=false,remindTxtArr=['','太棒了，你答对了一个','太棒了，你答对了2个了，继续加油','太棒了，你答对了3个了，继续加油','太棒了，你答对了4个了，继续加油','太棒了，你答对了5个了，差一个了','你是天才吧，全对了！'];
+				var fruitHtml='',EncouragingTxtArr=['记错了，没关系，还有机会','记错了，没关系，还有机会'];
+				var oClassname={},num=0,selectok=0;
+				var random_num=function(i){
+					var r_num=Math.floor(Math.random()*i);
+					return r_num;
+					};
+				var goal_r=function(){return random_num(8)};
+				var goal=arrOrigin[goal_r],tips=document.querySelector('.tips'),
+					tips2=document.querySelector('.tips2'),
+					reStart=document.querySelector('#reset');
+					//游戏开始
+					var gameTimer=function(){
+						var n=16,numArr=[],obj={};
+					for(var a=0;a<n;a++){
+						var a_rand=random_num(16);
+						if(!obj[a_rand]){numArr.push(a_rand);obj[a_rand]=1;}
+						else{n+=1}
+					};
+					for(var i=0;i<16;i++){
+						var r_num=random_num(16-i);
+						var x=Math.floor(i%4);
+						var y=Math.floor(i/4);
+						fruitHtml+='<div style="left:'+61*x+'px;top:'+y*61+'px" class="'+arrClone[numArr[i]].idName+'"><span></span></div>';//拼接字符串
+						//arr.splice(r_num,1);
+					}
+					spec.obj.innerHTML=fruitHtml;
+					spanArr=spec.obj.querySelectorAll('span');
+					goal=arrOrigin[goal_r()];
+					for(var i=0;i<spanArr.length;i++){
+						spanArr[i].style.opacity='1';
+					};
+					tips.innerHTML='';
+					if(timer1){clearTimeout(timer1);timer1=null}
+					if(timer2){clearTimeout(timer2);timer2=null}
+					if(timer3){clearTimeout(timer3);timer3=null}
+					if(timer4){clearTimeout(timer4);timer4=null}
+					//以上为游戏初始化
+					timer4=setTimeout(function(){
+						for(var i=0;i<spanArr.length;i++){
+							spanArr[i].style.opacity='0';
+						}
+						timer3=setTimeout(function(){tips.innerHTML='请找出两个'+goal.name;canClick=true;},1000);
+					},10000);
+				}
+				gameTimer();
+				var init=function(){
+					goal=arrOrigin[goal_r];
+					num=0;
+					selectok=0;
+					canClick=false;
+					console.log('init');
+					gameTimer();
+				};//游戏初始化
+				var selectObj=arrOrigin[random_num(16)];
+				//console.log(arrOrigin)
+				document.body.addEventListener('touchstart', function (e) {
+						e = e.changedTouches[0];
+						console.log(num);
+						var classN=e.target.parentNode.className;
+						if(e.target.id=='reset'){init();}
+						if(e.target.tagName.toLocaleLowerCase()=='span'&&e.target.parentNode.tagName.toLocaleLowerCase()=='div'&&canClick==true){
+							console.log(classN+'|||'+goal.idName);
+							if(num>=6){return false;}//如果num>6，游戏结束
+							e.target.style.opacity='1';
+							num+=1;
+							if(e.target.parentNode.className==goal.idName){
+								tips.innerHTML=remindTxtArr;
+								selectok+=20;
+								tips.innerHTML=remindTxtArr[selectok/20];
+							}
+							else if(e.target.parentNode.className!==goal.idName){
+								tips.innerHTML=EncouragingTxtArr[0]
+							}
+							if(num%2==0){
+								canClick=false;
+								for(var i=0;i<spanArr.length;i++){
+											if(spanArr[i].style.opacity=='0'){spanArr[i].style.opacity='0.5';}
+								};
+								//document.body.removeEventListener('touchstart')
+								if(num<6){
+									if(timer1){clearTimeout(timer1);timer1=null}
+									if(timer2){clearTimeout(timer2);timer2=null}
+									timer1=setTimeout(function(){
+										tips.innerHTML='5秒后找出要求的水果';
+										goal=arrOrigin[random_num(8)];
+									},3000);//第二次点击后 游戏重新开始
+									timer2=setTimeout(function(){
+										for(var i=0;i<spanArr.length;i++){
+											spanArr[i].style.opacity='0';
+										};
+										tips.innerHTML=tips.innerHTML='请找出两个'+goal.name;
+										canClick=true;
+									},8000)
+								}
+								else{
+									for(var i=0;i<spanArr.length;i++){
+										spanArr[i].style.opacity='1';
+									};
+									tips.innerHTML='游戏结束，您总记住了'+(selectok/20)+'个水果的位置，获得'+selectok+'分';
+								}
+							}
+							e.target.className='border_select';
+						}
+					})	
+				}
+			var game=memoryGame({obj:document.querySelector('.content')});
+			
+		</script>
+	</body>
+</html>

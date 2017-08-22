@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>挑战极限，你的老婆可以完成吗？</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery-1.8.0.js" charset="UTF-8"></script>
+		<script>
+			var get_key = false,
+				get_photo = false,
+				get_rope = false,
+				get_shovel = false,
+				get_bottle = false,
+				game_status = false,
+				firstbackbox=true,current_page;
+		</script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<!--<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript">
+			// 微信配置
+			wx.config({
+				debug: false,
+				appId: 'wx50369b105a1add71',
+				timestamp: 1457425017,
+				nonceStr: 'M3EI41t0jbBjrxKm',
+				signature: 'b18097afb1d5662d69894eab2080a9ee0e9a9e66',
+				jsApiList: [
+					// 所有要调用的 API 都要加到这个列表中
+					'checkJsApi',
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage'
+				]
+			});
+			// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+//			wx.ready(function() {
+//				// 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+//				wx.onMenuShareTimeline({
+//					title: '不速之客，等你来挑战', // 分享标题
+//					link: location.href,
+//					imgUrl: "www.bjliehu.com/bszkh5/img/share.jpg" // 分享图标
+//				});
+//				// 获取“分享给朋友”按钮点击状态及自定义分享内容接口
+//				wx.onMenuShareAppMessage({
+//					title: '不速之客，等你来挑战', // 分享标题
+//					desc: game_status?"我用了"+parseInt((end_timer - start_timer) / 1000)+"秒完成了游戏，你敢来战吗":"时间不多了，快来解救心爱的人吧", // 分享描述
+//					link: location.href,
+//					imgUrl: "www.bjliehu.com/bszkh5/img/share.jpg", // 分享图标
+//					type: 'link', // 分享类型,music、video或link，不填默认为link
+//				});
+//			});
+			document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	            // 发送给好友
+	            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+	                WeixinJSBridge.invoke('sendAppMessage', {
+	                    "img_url": 'http://www.bjliehu.com/bszkh5/img/share.jpg',
+	                    "link": location.href,
+	                    "desc": game_status?"我用了"+parseInt((end_timer - start_timer) / 1000)+"秒完成了游戏，你敢来战吗":"时间不多了，快来解救心爱的人吧",
+	                    "title": '不速之客，等你来挑战'
+	                });
+	            });
+	            // 分享到朋友圈
+	            WeixinJSBridge.on('menu:share:timeline', function(argv){
+	                WeixinJSBridge.invoke('shareTimeline', {
+	                    "img_url": 'http://www.bjliehu.com/bszkh5/img/share.jpg',
+	                    "link": location.href,
+	                    "desc": game_status?"我用了"+parseInt((end_timer - start_timer) / 1000)+"秒完成了游戏，你敢来战吗":"时间不多了，快来解救心爱的人吧",
+	                    "title": '不速之客，等你来挑战'
+	                });
+	            });
+	        }, false);
+		</script>-->
+	</head>
+	<body>
+		<div class="page page_0" id="page_0">
+			<div class="loader">
+				<div class="loader_inner"></div>
+			</div>
+			<div class="preload">
+				<img src="img/s04.jpg"/>
+			</div>
+			<audio class="dingding" src="music/ding.mp3"></audio>
+			<audio class="type_audio" src="music/type.mp3" loop="loop"></audio>
+			<div class="clickjump hide page_0_hideclick" data-destination="#page_1"></div>
+		</div>
+		
+		<div class="page page_1" id="page_1">
+			<img class="page_mainimg" src="img/s01.jpg" />
+			<div class="clickjump immediately page_1_switch jumpdisable" data-destination="#page_2"></div>
+			<!--<div class="page_1_type_area" data-typetext="凌晨一点，琳琳结束了工作。关灯准备离开">
+				<span class="type_blink"></span>
+			</div>-->
+			<img class="page_1_tip will_animate" animation-class="page_1_tipact" src="img/page_1_tip.png"/>
+			<div class="page_1_supbox">
+				<img src="img/sup_1.png"/>
+				<img src="img/sup_2.png"/>
+			</div>
+		</div>
+		<div class="page page_2" id="page_2">
+			<img class="page_mainimg" src="img/s02.jpg" />
+			<audio class="page_2_closemusic" src="music/close.mp3"></audio>
+			<div class="clickjump hide page_2_hideclick" data-destination="#page_3"></div>
+			<!--<div class="page_2_type_area" data-typetext="琳琳走向停车场准备开车回家">
+				<span class="type_blink"></span>
+			</div>-->
+			<img class="page_2_tip will_animate" animation-class="page_1_tipact" src="img/page_2_tip.png"/>
+		</div>
+		<div class="page page_3" id="page_3">
+			<img class="page_mainimg" src="img/s03.jpg" />
+			<div class="clickjump hide page_3_hideclick" data-destination="#page_4"></div>
+		</div>
+		<div class="page page_4" id="page_4">
+			<img class="page_mainimg" src="img/sblackphone.jpg" />
+			<audio class="ringtone" src="music/ringtone.mp3" loop="loop"></audio>
+			<div class="clickjump page_4_iphone once" data-destination="#page_5"></div>
+		</div>
+		<div class="page page_5" id="page_5">
+			<img class="page_mainimg" src="img/s05.jpg" />
+			<div class="page_5_touchblock"></div>
+			<div class="clickjump hide page_5_hideclick" data-destination="#page_6"></div>
+		</div>
+		<div class="page page_6" id="page_6">
+			<!--<img class="page_mainimg" src="img/s06.jpg" />-->
+			<!--<div class="page_6_tip">你老公郑凯在我手上，想要救他，你要尽快完成我的要求。否则~</div>-->
+			<div class="clickjump hide page_6_hideclick" data-destination="#page_7"></div>
+			<audio class="page_6_out" src="music/out.mp3"></audio>
+			<audio class="page_6_busy" src="music/busy.mp3"></audio>
+		</div>
+		<div class="page page_7" id="page_7">
+			<img class="page_mainimg" src="img/s_start.jpg" />
+			<img class="clickjump page_7_startbtn" data-destination="#page_8" src="img/start_btn.png"/>
+		</div>
+		<div class="page page_8" id="page_8">
+			<img class="page_mainimg" src="img/s07.jpg" />
+			<div class="page_8_box clickjump" data-destination="#page_8_2"></div>
+			<div class="textleft clickjump" data-destination="#page_9"><img src="img/btn_left_back.png"/></div>
+			<div class="textright clickjump" data-destination="#page_10"><img src="img/btn_right_backbox.png"/></div>
+			<div class="poptip">去别的地方碰碰运气吧</div>
+		</div>
+		<div class="page page_8_1" id="page_8_2">
+			<img class="page_mainimg" src="img/s10.jpg" />
+			<div class="page_8_key clickjump" data-destination="#page_8_21"></div>
+			<div class="textleft clickjump" data-destination="#page_8"><img src="img/btn_left_front.png"/></div>
+		</div>
+		<div class="page page_8_21 clickjump" data-destination="#page_8" id="page_8_21">
+		</div>
+		<div class="page page_9" id="page_9">
+			<img class="page_mainimg" src="img/s12.jpg" />
+			<div class="page_9_photobox clickjump" data-destination="#page_9_1"></div>
+			<div class="page_9_ropebox clickjump" data-destination="#page_9_2"></div>
+			<div class="textleft clickjump" data-destination="#page_8"><img src="img/btn_left_front.png"/></div>
+			<div class="textright clickjump" data-destination="#page_10"><img src="img/btn_right_backbox.png"/></div>
+			<div class="poptip">去别的地方碰碰运气吧</div>
+		</div>
+		<div class="page page_9_1" id="page_9_1">
+			<img class="page_mainimg" src="img/s13.jpg" />
+			<div class="page_9_photo clickjump" data-destination="#page_9_11"></div>
+			<div class="textleft clickjump" data-destination="#page_9"><img src="img/btn_left_back.png"/></div>
+		</div>
+		<div class="page page_9_11 clickjump" data-destination="#page_9" id="page_9_11">
+		</div>
+		<div class="page page_9_1" id="page_9_2">
+			<img class="page_mainimg" src="img/s15.jpg" />
+			<div class="page_9_rope clickjump" data-destination="#page_9_21"></div>
+			<div class="textleft clickjump" data-destination="#page_9"><img src="img/btn_left_back.png"/></div>
+		</div>
+		<div class="page page_9_21 clickjump" data-destination="#page_9" id="page_9_21">
+		</div>
+
+		<div class="page page_10" id="page_10">
+			<audio class="backbox_audio" src="music/backbox.mp3"></audio>
+			<img class="page_mainimg" src="img/s17.jpg" />
+			<div class="page_10_shovelbox clickjump" data-destination="#page_10_1"></div>
+			<div class="page_10_bottlebox clickjump" data-destination="#page_10_2"></div>
+			<div class="textleft clickjump" data-destination="#page_8"><img src="img/btn_left_front.png"/></div>
+			<div class="textright clickjump" data-destination="#page_9"><img src="img/btn_right_back.png"/></div>
+			<div class="poptip">去别的地方碰碰运气吧</div>
+		</div>
+		<div class="page page_10_1" id="page_10_1">
+			<img class="page_mainimg" src="img/s18.jpg" />
+			<div class="page_10_shovel clickjump" data-destination="#page_10_11"></div>
+			<div class="textleft clickjump" data-destination="#page_10"><img src="img/btn_left_backbox.png"/></div>
+		</div>
+		<div class="page page_10_11 clickjump" data-destination="#page_10" id="page_10_11">
+		</div>
+		<div class="page page_10_1" id="page_10_2">
+			<img class="page_mainimg" src="img/s20.jpg" />
+			<div class="page_10_bottle clickjump" data-destination="#page_10_21"></div>
+			<div class="textleft clickjump" data-destination="#page_10"><img src="img/btn_left_backbox.png"/></div>
+		</div>
+		<div class="page page_10_21 clickjump" data-destination="#page_10" id="page_10_21">
+		</div>
+		<div class="page page_11" id="page_11">
+			<div class="suc_word"><!--<img src="img/suc_word.jpg" width="100%" class=".page_mainimg" />--></div>
+		</div>
+		
+		<div class="tip_box">
+			<img class="tip_key" src="img/tip_key.png"/>
+			<img class="tip_photo" src="img/tip_photo.png"/>
+			<img class="tip_rope" src="img/tip_rope.png"/>
+			<img class="tip_hammar" src="img/tip_hammar.png"/>
+			<img class="tip_bottle" src="img/tip_bottle.png"/>
+		</div>
+		<audio class="ticking_audio" src="music/ticking.mp3" loop="loop"></audio>
+	</body>
+</html>
+ 

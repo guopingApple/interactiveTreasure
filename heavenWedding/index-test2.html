@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>天降喜事 全民来咻</title>
+		<link rel="stylesheet" href="css/animate.min.css"/>
+		<style>
+			/*----reset*/
+			html,body{font-size: 12px;font-family: simhei;text-align: center;width: 100%;height: 100%;}
+			body,section,div,h1,a,p,ul,li,b{padding: 0;margin: 0;}
+			input,a,b{border: none;-webkit-appearance: none;-webkit-tap-highlight-color: transparent;outline: none;}
+			ul,li{list-style: none;}
+			@font-face {
+				font-family:"FZZYJW";
+				src: url(font/FZZYJW.TTF);
+			}
+			/*----style*/
+			.block{width: 100%;display: block;}
+			.borderBox{box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+			section{width: 100%;height: 100%;display: none; overflow: hidden;}
+			.weddinglogo{width: 16%;}
+			.rewardBox{width: 100%;position: relative;}
+			.rewardBox span{position:absolute;font-family: "FZZYJW";}
+			.rewardInfo p{font-family: "FZZYJW";}
+			/*page1*/
+			.page1{background: url(img/page1/page.jpg) no-repeat 50%/cover;display: none;}
+			.heavenTxt{width:100%;position:absolute;top:0;left:0;}
+			.heavenTxt p{width:100%;height:115%;position:absolute;bottom:0;background: url(img/page1/heavenBg.png) no-repeat 0 100%/100%;}
+			.heavenTxt img{width: 71.5%;visibility: hidden;}
+			.startPlay{width:100%;position: absolute;left:0;bottom:50px;}
+			.startPlay input{width: 37.2%;}
+			.rules{width: 100%;height:41px;position:absolute;bottom:0;left:0;line-height:1.25rem;font-size: 1.25rem;}
+			.rules a{color: #fff;}
+			.activeBox{width: 100%;height: 100%;position:fixed;top:0;left:0;background:rgba(0,0,0,0.5) url(img/page1/activeTxt.png) no-repeat 50%/100%;display: none;}
+			/*page2*/
+			.page2{background: url(img/page2/page.jpg) no-repeat 50%/cover;}
+			.startGame{width: 100%;position: absolute;left: 0;bottom: 27px;}
+			.startGame input{width: 38.4%;}
+			.proList{height: auto;overflow: hidden;padding: 14px 1rem 0;}
+			.proList li{padding-bottom:0.41rem;display: -webkit-box;display: -moz-box;}
+			.proList p{width: 25%;}
+			.proList li.three p{margin:0 2.5%;}
+			.proList li.three p:first-child{margin-left: 7.4%;}
+			.proList img{width: 78.3%;}
+			.proList span{width:100%;height:18px;display: block;line-height: 18px;font-size: 1.1rem;color:#fff;}
+			/*page3*/
+			.page3{background:url(img/page3/page.jpg) no-repeat 50%/cover;display: none;}
+			.rewardInfo{width: 100%;position: absolute;left: 0;bottom: 27px; text-align: center;}
+			.rewardInfo p{ margin:0 auto;width: 44.6%;text-indent: 33px;font-size: 16px;line-height: 46px; background: url(img/page3/rewardInfo.png) no-repeat center center; background-size: contain; width: 143px; height: 48px;}
+			.gameTime{width: 87.5%;padding: 3rem 5% 0;display: -webkit-box;display: -moz-box;-webkit-box-align: center;-moz-box-align: center;}
+			.gameTime p{width: 87.6%;margin-right:3.4%;position: relative;}
+			.gameTime img{width:100%;display: block;}
+			.gameTime span{width: 83%;height:37.6%;position: absolute;left: 14.8%; top: 31.2%;background:url(img/page3/timeBar.jpg) repeat-x 0 0/auto 100%;border-radius: 2rem}
+			.gameTime b{width:25px;display: block;text-align: left;font-size:1.25rem;color: #fff;font-weight: 600;}
+			.gameBox{ width: 80%;margin: 20px auto;position: relative; height: 60%;}
+			.gameBox p{ position: absolute; width: 24%;}
+			.gameBox p img{ width: 78%;}
+			/*page4*/
+			.page4{background: url(img/page.jpg) no-repeat 50%/cover;display: none;}
+			.page4 .rewardBox span{width:28%; text-align:center;display:block;left:31%;top:40%;color: #75421f;font-size: 2.5rem;line-height:2.5rem;letter-spacing: 0.4rem;}
+			.btnAction{width: 100%;padding:0 6.5%;position: absolute;left: 0;bottom: 52px;}
+			.btnAction input{width: 44%;margin: 0 2%;}
+			/*page5*/
+			.page5{background: url(img/page.jpg) no-repeat 50%/cover;display: none;}
+			.page5 .rewardBox span{width:100%;left:0;top:46.5%;line-height:3.75rem;color:#f8ff58;font-size:3.75rem;}
+			.page5 .rewardBox b{font-size: 2.9rem;}
+			.btnScratch{width: 100%;position: absolute;left: 0;bottom: 33.5px;}
+			.btnScratch input{width: 46.5%;}
+			/*page6*/
+			.page6{background: url(img/page.jpg) no-repeat 50%/cover;display: none;}
+			.scratchBox{width: 35%;position: absolute;top:50.5%;left: 32.5%;}
+			.scratchTxt{font-size: 1.5rem;line-height:2rem;font-family:"FZZYJW";color: #75421f;}
+			.btnShare{width: 100%;position: absolute;left: 0;bottom: 32px; display: none;}
+			.btnShare input{width: 38.4%;}
+			.boxCover{ position: absolute; width: 45%;height: 19.5%; left:28%;top:48.4%; z-index: 10;}
+			/*share*/
+			.share{width:100%;height:100%;background:rgba(0,0,0,0.8);position: fixed;top: 0;left: 0;display: none;}
+			
+			/*animate*/
+			.bounceSwing{
+				animation: bounceInDown 1s,swing 3s ease-in-out 1.1s;
+				-webkit-animation: bounceInDown 1s,swing 3s ease-in-out 1.1s;
+				-webkit-transform-origin: top center;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/page4/300.jpg" style="position: absolute; left: -200%;"  />
+		<!--page1-->
+		<section class="page1">
+			<h1 class="weddinglogo"><img src="img/weddingLogo.png" alt="" class="block" /></h1>
+			<div class="heavenTxt">
+				<img src="img/page1/heavenTxt.png" alt="" class="" />
+				<p class="bounceSwing"></p>
+			</div>
+			<div class="startPlay"><input type="image" src="img/page1/startPlay.png" id="" value="&nbsp" /></div>
+			<div class="rules"><a href="javascript:void(0)">活动规则</a></div>
+			<!--activity rules-->
+			<div class="activeBox"></div>
+		</section>
+		<!--page2-->
+		<section class="page2">
+			<h1 class="weddinglogo"><img src="img/weddingLogo.png" alt="" class="block" /></h1>
+			<ul class="proList" id="proList">
+				<li>
+					<p class="pulse animated infinite"><img src="img/pro1.png" alt="" /><span>+100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro2.png" alt="" /><span>+100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro3.png" alt="" /><span>+100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro4.png" alt="" /><span>+100</span></p>
+				</li>
+				<li>
+					<p class="pulse animated infinite"><img src="img/pro5.png" alt="" /><span>+100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro6.png" alt="" /><span>+100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro7.png" alt="" /><span>+100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro8.png" alt="" /><span>+100</span></p>
+				</li>
+				<li class="three">
+					<p class="pulse animated infinite"><img src="img/pro9.png" alt="" /><span>-100</span></p>
+					<p class="pulse animated infinite"><img src="img/pro10.png" alt="" /><span>-200</span></p>
+					<p class="pulse animated infinite"><img src="img/pro11.png" alt="" /><span>-300</span></p>
+				</li>
+				<li class="three">
+					<p class="pulse animated infinite"><img src="img/pro12.png" alt="" /><span>+200</span></p>
+					<p class="pulse animated infinite"><img src="img/pro13.png" alt="" /><span>+200</span></p>
+					<p class="pulse animated infinite"><img src="img/pro14.png" alt="" /><span>+300</span></p>
+				</li>
+			</ul>
+			<div class="startGame"><input type="image" src="img/page2/startGame.png" id="" value="&nbsp;" /></div>
+		</section>
+		<!--page3-->
+		<section class="page3">
+			<div class="gameTime">
+				<p>
+					<img src="img/page3/timeBox.png" align="" />
+					<span class="timelong"></span>
+				</p>
+				<b class="time">15s</b>
+			</div>
+			<div class="gameBox"></div>
+			<div class="rewardInfo"><p class="score">0</p></div>
+		</section>
+		<!--page4-->
+		<section class="page4">
+			<div class="rewardBox">
+				<img src="img/page4/rewardBox.png" alt="" class="block" />
+				<span class="score2">0</span>
+			</div>
+			<div class="btnAction borderBox">
+				<input type="image" src="img/page4/btnAgain.png" id="btnAgain" value="&nbsp;" />
+				<input type="image" src="img/btnShare.png" id="btnShare" value="&nbsp;" />
+			</div>
+		</section>
+		<!--page5-->
+		<section class="page5">
+			<div class="rewardBox">
+				<img src="img/page5/rewardBox.png" alt="" class="block" />
+				<span class="score3">4100<b>元</b></span>
+			</div>
+			<div class="btnScratch">
+				<input type="image" src="img/page5/btnScratch.png" id="" value="&nbsp;" />
+			</div>
+		</section>
+		<!--page6-->
+		<section class="page6">
+			<div class="rewardBox" id="box6">
+				<div id="con" class="boxCover">
+					<canvas id="myCanvas" width="200" height="100"></canvas>
+				</div>
+				<img src="img/page6/rewardBox.png" alt="" class="block" />
+				<div class="scratchBox">
+					<p class="scratchTxt">有住<b>900</b>元<br />优惠券</p>
+				</div>
+			</div>
+			<div class="btnShare">
+				<input type="image" src="img/btnShare.png" id="" value="&nbsp;" />
+			</div>
+		</section>
+		<!--share-->
+		<div class="share"><img src="img/shareTxt.png" alt="" class="block" /></div>
+		<script charset="UTF-8" src="js/touchEvent.js"></script>
+		<script>
+			(function(){
+				var agent = navigator.userAgent.toLowerCase();        //检测是否是ios
+			    var iLastTouch = null;                                //缓存上一次tap的时间
+			    if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0)
+			    {
+			        document.body.addEventListener('touchend', function(e)
+			        {
+			            var iNow = new Date()
+			                .getTime();
+			            iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */ ;
+			            var delta = iNow - iLastTouch;
+			            if (delta < 500 && delta > 0)
+			            {	
+			                e.preventDefault();
+			                console.log('wwwww')
+			                return false;
+			            }
+			            iLastTouch = iNow;
+			        }, false);
+			    };
+				var box=document.getElementById("proList"),
+						pItem=box.getElementsByTagName("p"),
+						pLen=pItem.length;
+				for(var i=0; i<pLen-1;i++){
+					if(i%2==0){
+						pItem[i].style.webkitAnimationDelay="0.5s";
+					}
+				}
+				var objSection=document.querySelectorAll('section'),len=objSection.length,score=0;
+				var arrScore=[100,-100,200,-200,300,-300];
+				var fnShow=function(a){
+					for(var i=0;i<len;i++){
+						objSection[i].style.display='none';
+						
+					}
+					objSection[a].style.display='block';
+				}
+				//初始化
+				window.onload=fnShow(0);
+				var start=function(){
+					fnShow(1)
+				}
+				var touchEvent=objTouch(),timer,timeBox=document.querySelector('.time'),count=15;
+				var gameBox=document.querySelector('.gameBox'),objImg,timelong=document.querySelector('.timelong');
+				var fnCreateDom=function(){
+					var ohtml='';
+					for(var i=1;i<15;i++){
+						ohtml+='<p style="left:'+Math.floor(Math.random()*10)*10+'%;top:'+Math.floor(Math.random()*10)*10+'%"><img  alt="'+i+'" src="img/pro'+i+'.png" class="cc'+i+'" /></p>';
+					}
+					gameBox.innerHTML=ohtml;
+				}
+				touchEvent.tap(document.querySelector('.startPlay'),start);
+				touchEvent.tap(document.querySelector('#btnAgain'),function(){
+					//window.location.href=''; 
+					//游戏重新开始
+					fnShow(0);
+					score=0;
+					scoreBox.innerHTML=score;scoreBox2.innerHTML=score;scoreBox3.innerHTML=score;
+					timelong.style.width='83%';
+					timeBox.innerHTML='15s';
+					count=15;
+				});
+				touchEvent.tap(document,function(){
+					//btnShare
+					console.log(touchEvent.target.className||touchEvent.target.parentNode.className)
+					var targetName=touchEvent.target.className||touchEvent.target.parentNode.className
+					console.log(/touchEvent.target.className||touchEvent.target.parentNode.className/.test(targetName));
+					if(/btnShare/.test(targetName)){
+						document.querySelector('.share').style.display='block';
+					}
+					if(/share/.test(targetName)){
+						document.querySelector('.share').style.display='none';
+					}
+					if(/rules/.test(targetName)){
+						document.querySelector('.activeBox').style.display='block';
+					}
+					if(/activeBox/.test(targetName)){
+						document.querySelector('.activeBox').style.display='none';
+					}
+					if(/btnScratch/.test(targetName)){
+						fnShow(5);
+					}
+					if(/startGame/.test(targetName)){
+						fnShow(2);
+						fnCreateDom();
+						timer=setInterval(function(){
+							count--;
+							timelong.style.width=83-Math.floor(83*((15-count)/15))+'%';
+							timeBox.innerHTML=count+'s';
+							if(count==0){clearInterval(timer);timer=null;
+								if(score>=3000){fnShow(4)}
+								else{
+									fnShow(3)
+								}
+							}
+						},1500)
+					}
+					//document.querySelector('.share').style.display='block';
+				});
+				/*
+				touchEvent.tap(document.querySelector('#btnShare'),function(){
+					document.querySelector('.share').style.display='block';
+				});
+				touchEvent.tap(document.querySelector('.share'),function(){
+					document.querySelector('.share').style.display='none';
+				});
+				touchEvent.tap(document.querySelector('.rules'),function(){
+					document.querySelector('.activeBox').style.display='block';
+				});
+				touchEvent.tap(document.querySelector('.activeBox'),function(){
+					document.querySelector('.activeBox').style.display='none';
+				});
+				touchEvent.tap(document.querySelector('.btnScratch'),function(){fnShow(5)})
+				*/
+				var objClick=document.querySelector('.gameBox').querySelectorAll('p');
+				var scoreBox=document.querySelector('.score'),scoreBox2=document.querySelector('.score2'),scoreBox3=document.querySelector('.score3');
+				var fnGame=function(e){
+					var target=touchEvent.target;
+					var num=Math.floor(target.alt) || 0;
+					if(target.nodeName=='IMG'){
+						target.style.display='none';
+						
+						if(num<=7){score+=100;}
+						else{
+							switch(num){
+								case 8:
+								score-=100;
+								break;
+								case 9:
+								score-=200;
+								break;
+								case 10:
+								score-=300;
+								break;
+								case 11:
+								score+=200;
+								break;
+								case 12:
+								score+=200;
+								break;
+								case 13:
+								score+=300;
+								break;
+							}
+						}
+						//console.log(score);
+						scoreBox.innerHTML=score;scoreBox2.innerHTML=score;scoreBox3.innerHTML=score;
+						var random=Math.floor(Math.random()*14)+1;
+						var objP=document.createElement('p');
+						objP.style.left=Math.floor(Math.random()*10)*10+'%';
+						objP.style.top=Math.floor(Math.random()*10)*10+'%';
+						var objImg=document.createElement('img');
+						objImg.src='img/pro'+random+'.png';
+						objImg.alt=random;
+						objP.appendChild(objImg);
+						gameBox.appendChild(objP);
+					}
+				}
+				touchEvent.swipe(document)
+				touchEvent.tap(gameBox,fnGame);
+				/* 刮刮卡 */
+				var myCanvas = document.getElementById('myCanvas'),wWidth=window.innerWidth,wHeight=Math.floor((wWidth/320)*390);
+				var gray = myCanvas.getContext('2d');
+				myCanvas.width=Math.floor(wWidth*45/100);
+				myCanvas.height=Math.floor(wHeight*19/100);
+				gray.beginPath();
+				gray.fillStyle = "#999";
+				gray.fillRect(0,0,myCanvas.width,myCanvas.height);
+				gray.closePath();
+				gray.globalCompositeOperation="destination-out";
+				//该属性表示的是图形的组合方式。我们要使用到的是destination-out，它表示只绘制原图形与新图形不重叠的部分；原图形与新图形重叠的部分变透明。
+				myCanvas.addEventListener('touchmove', function(e){
+					e.preventDefault();
+					gray.beginPath();//保证每一次都有开始和闭合路径（换句话说，就是防止路径互相影响）
+					gray.fillStyle = "#f00";
+					gray.arc(e.targetTouches[0].clientX-Math.floor(wWidth*28/100), e.targetTouches[0].clientY - Math.floor(wHeight*48/100), 10, 0, Math.PI*2);
+					gray.fill();
+					gray.closePath();//保证每一次都有开始和闭合路径（换句话说，就是防止路径互相影响）
+				});
+				myCanvas.addEventListener('touchend', function(e){
+					e.preventDefault();
+					var num = 0;
+					var datas = gray.getImageData(0,0,myCanvas.width,myCanvas.height);
+					for (var i = 0; i < datas.data.length; i++) {
+						if (datas.data[i] == 0) {
+							num++;
+						};
+					};
+					if (num >= datas.data.length * 0.7) {//刮掉50%的面积时，就执行
+						gray.fillRect(0,0,myCanvas.width,myCanvas.height);	//又画了一个矩形，和开始的矩形完全重合，所以整个canvs变透明
+						document.querySelector('.btnShare').style.display='block';
+					};
+				});
+			}())
+		</script>
+	</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  <meta content="yes" name=" apple-mobile-web-app-capable" /> 
+  <meta http-equiv="pragma" content="no-cache" /> 
+   <title>杰士邦——欧洲杯期间成都人的"啪"力报告！</title>
+   <link rel="stylesheet" href="css/animate.min.css" /> 
+  <link rel="stylesheet" href="css/yss160224.css" /> 
+  
+  <style>
+  	.c11{ background: #363636;}
+  	.video{ margin: 24% 10% 5%;}
+  	.ptxt{ color: #fff; font:12px/24px "微软雅黑"; margin: 0 10%;}
+  	.ptit{text-align: center; font: bold 16px/50px "微软雅黑"; color: #ef118b;}
+  	h1{text-indent: -1000px; position: absolute;top: -100px;}
+  	.selected{color: #f00;}
+  </style>
+  <script src="http://y2.ifengimg.com/l/2016/8/2f61d299bff293e/zepto.min.js"></script> 
+  </head>
+  <body> 
+  	<h1>成都人的啪啪</h1>
+  	<img src="" style=" position:absolute;left:-200%;" /> 
+  <div id="loading"> 
+</div> 
+<div id="wrap"> 
+ <div id="scrollContent"> 
+  <section class="content page1" id="c0"> 
+  	<div class="indexTxt relative">
+				<p class="bounceIn animated"><img src="img/page1/animate_1.png"/></p>
+				<p class="absolute zInx1 bounceIn animated delay1"><img src="img/page1/animate_2.png"/></p>
+				<p class="absolute zInx2 bounceIn animated delay2"><img src="img/page1/animate_3.png"/></p>
+			</div>
+			<div class="indexImg relative">
+				<p class="relative zInx3"><img src="img/page1/animate_4.png"/></p>
+				<p class="absolute zInx1 bounceRubb"><img src="img/page1/animate_5.png"/></p>
+				<p class="absolute zoomIn animated delay4"><img src="img/page1/animate_6.png"/></p>
+				<p class="absolute zoomInLeft animated delay4"><img src="img/page1/animate_7.png"/></p>
+				<p class="absolute zInx2 zoomIn animated delay5"><img src="img/page1/animate_8.png"/></p>
+			</div>
+			<div class="clicked"></div>
+			<div class="indexBtn absolute sildPulse next"><img src="img/page1/startBtn.png"/></div>
+  </section>
+  <section class="content" id="c1">
+  	<ul class="question">
+  		<li>A.你知道吗？</li>
+  		<li>B.你知道吗？</li>
+  		<li>C.你知道吗？</li>
+  		<li>D.你知道吗？</li>
+  	</ul>
+  </section> 
+  <section class="content" id="c2"> 
+   <ul class="question">
+  		<li>A.你知道吗？</li>
+  		<li>B.你知道吗？</li>
+  		<li>C.你知道吗？</li>
+  		<li>D.你知道吗？</li>
+  	</ul>
+  </section> 
+  <section class="content" id="c3">
+  	<ul class="question">
+  		<li>A.你知道吗？</li>
+  		<li>B.你知道吗？</li>
+  		<li>C.你知道吗？</li>
+  		<li>D.你知道吗？</li>
+  	</ul>
+  </section> 
+  <section class="content" id="c4"> 
+  	<ul class="question">
+  		<li>A.你知道吗？</li>
+  		<li>B.你知道吗？</li>
+  		<li>C.你知道吗？</li>
+  		<li>D.你知道吗？</li>
+  	</ul>
+  </section> 
+  <section class="content" id="c5">
+  	<ul class="question">
+  		<li>A.你知道吗？</li>
+  		<li>B.你知道吗？</li>
+  		<li>C.你知道吗？</li>
+  		<li>D.你知道吗？</li>
+  	</ul>
+  </section> 
+  <section class="content" id="c6"> 
+   	<ul class="question">
+  		<li>A.你知道吗？</li>
+  		<li>B.你知道吗？</li>
+  		<li>C.你知道吗？</li>
+  		<li>D.你知道吗？</li>
+  	</ul>
+  </section> 
+  <section class="content" id="c7">
+  	<p style="color: #000;">最后一页</p>
+  </section> 
+ </div> 
+</div> 
+<script>Zepto(function ($){
+			/**
+			 * 
+			 */
+			var filterClass = {
+				blur : "blur",
+				focus : "z_active"
+			}
+			var $w = $(window),$body=$("body")
+				$loading = $("#loading"),
+				$wrap = $("#wrap"),
+				$scrollContent = $("#scrollContent"),
+				$content = $(".content");
+	
+			var contentLength = $content.size(),n=1;	
+			
+			function initPage(){
+				var wH = $body.height();
+				$wrap.css({
+					"height" : wH
+				});
+				$scrollContent.css({
+					"height" : wH*contentLength
+				});
+				$content.css({
+					"height" : wH
+				});
+				for(n;n<contentLength-1;n++){
+					$content.eq(n).append('<p class="next">下一页</p>');
+				}
+			}	
+
+			function resize(){
+				initPage();
+			}	
+
+			function windowLoad(){
+				$("#loading").css({display: "none"});
+				$content.first().addClass('z_active')
+       	setTimeout(function(){onTouch.filterClass('up')},500);
+			}
+
+			var onTouch = {
+				startY : 0,moveY:0,
+				currentTop : 0,
+				onStart : function (e){
+					this.startY = e.pageY;
+					this.currentTop = $scrollContent.css("top");
+					//document.body.scrollTop=0;
+					//event.preventDefault();
+				},
+				onMove : function (e){
+					//this.moveY=e.pageY;
+					//console.log(this.moveY)
+					event.preventDefault();
+					
+					
+					//document.body.scrollTop=0;
+				},
+				onEnd : function (e){
+					//event.preventDefault();
+					console.log($(e.target).parent().prev().hasClass('clicked'))
+					if(e.target.nodeName.toLocaleLowerCase()=='li'){
+						this.fnAnswer();
+					}
+					else if ($(e.target).parent().prev().hasClass('clicked') || $(e.target).prev().hasClass('clicked')){
+						this.goDown();
+					}else if (this.startY < e.pageY-50) {
+						this.goUp();
+					}
+					//document.body.scrollTop=0;
+				},
+				goDown : function(){
+					this.contentScroll("down");
+				},
+				goUp : function(){
+					this.contentScroll("up");
+				},
+				contentScroll : function(flag){
+					var top = parseInt($scrollContent.css("top"));
+					if (flag=="down" && Math.abs(top) < $body.height()*(contentLength-1)) {
+						$scrollContent.css({
+							"top" : top - $body.height()
+						});
+						
+						this.filterClass("down");
+					}else if (flag=="up" && top<0 ) {
+						$scrollContent.css({
+							"top" : top + $body.height()
+						});	
+						this.filterClass("up");
+					};
+					this.addClass();
+				},
+				getCurrentIndex : function(){
+					var top = parseInt($scrollContent.css("top")),
+						currentIndex = parseInt(top/$body.height());
+					return Math.abs(currentIndex);	
+				},
+				addClass : function(n){
+					var index = n||this.getCurrentIndex();
+				},
+				initAddClass : function(){
+					this.addClass(0);
+				},
+				filterClass : function(flag){
+					var index = this.getCurrentIndex();
+					if (flag=="up" && index < contentLength-1) {
+						$("#c"+index).addClass(filterClass.focus);
+						$("#c"+(index+1)).removeClass(filterClass.focus);
+					}else if (flag=="down" && index > 0) {
+						$("#c"+index).addClass(filterClass.focus);
+						$("#c"+(index-1)).removeClass(filterClass.focus);
+					};
+				},
+				fnAnswer:function(e){
+								var parent=$(event.target).parents('.question');
+								if(parent){
+									$(event.target).addClass('selected').siblings().removeClass('selected');
+									parent.addClass('clicked')
+								}
+					}
+
+			};
+			initPage();
+		  window.onload = windowLoad;
+			window.onresize = resize;
+			//window.onscroll=function(){event.preventDefault()};
+			window.onorientationchange = resize;
+			document.body.addEventListener('touchstart', function (e) {
+				e = e.changedTouches[0];
+				onTouch.onStart(e);
+			});
+			document.body.addEventListener('touchmove', function (e) {
+				onTouch.onMove(e.changedTouches[0], e);
+			});
+			document.body.addEventListener('touchend', function (e) {
+				onTouch.onEnd(e.changedTouches[0]);
+			});
+			
+		});
+</script>
+</body>
+</html>

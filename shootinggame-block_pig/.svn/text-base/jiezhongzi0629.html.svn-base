@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>保护嫦娥姐姐</title>
+		<style>
+			body,
+			div,
+			p {
+				margin: 0;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			body {
+				background: url(images/bg.png) no-repeat;
+				background-size: cover;
+			}
+			
+			.boss {
+				width: 110px;
+				height: 100px;
+				background:url(images/quyuan.png) no-repeat;
+				background-size: contain;
+				position: absolute;
+				margin: -90px 0 0 -55px;
+			}
+			.gameove{margin-bottom: -300px; -webkit-transform:scale(0);-webkit-transition:all 2s ease 0s;}
+			.goaway {
+				-webkit-transform: translate(-1000px, -2000px);
+				-webkit-transition: all 10s ease 0s;
+			}
+			
+			.shut {
+				background: #FF0000;
+			}
+			
+			.dan {
+				opacity: 0;
+				width: 30px;
+				height: 30px;
+				background: url(images/6.png) no-repeat center center;
+				background-size: cover;
+				position: absolute;
+				left: 50%;
+				top: -50px;
+				margin: -90px 0 0 -55px;
+			}
+			
+			.dan1 {
+				opacity: 0;
+				width: 30px;
+				height: 30px;
+				background: url(images/zongzi.png) no-repeat center center;
+				background-size: cover;
+				position: absolute;
+				left: 50%;
+				top: -50px;
+				margin: -90px 0 0 -55px;
+			}
+			
+			.dan2 {
+				opacity: 0;
+				width: 30px;
+				height: 30px;
+				background: url(images/jiu.png) no-repeat center center;
+				background-size: cover;
+				position: absolute;
+				left: 50%;
+				top: -50px;
+				margin: -90px 0 0 -55px;
+			}
+			
+			.opc {
+				opacity: 1;
+			}
+			
+			.frontPage {
+				background: url(images/bg1.png) no-repeat;
+				background-size: cover;
+				width: 100%;
+				height: 100%;
+				position: relative;
+				z-index: 10;
+			}
+			
+			.startGame {
+				-webkit-animation: moving 2s ease 0s infinite;
+				background: #fff;
+				display: block;
+				width: 50%;
+				height: 40px;
+				line-height: 40px;
+				position: absolute;
+				left: 25%;
+				bottom: 20px;
+				border-radius: 30px;
+				text-align: center;
+			}
+			
+			@-webkit-keyframes moving {
+				0% {
+					transform: translateY(0px);
+				}
+				50% {
+					transform: translateY(-10px);
+				}
+				100% {
+					transform: translateY(0px);
+				}
+			}
+			
+			.bombBox {
+				transition: top 2s ease 0.5s;
+				background: url(images/tips.png) no-repeat;
+				background-size: cover;
+				width: 258px;
+				height: 265px;
+				position: absolute;
+				left: 50%;
+				top: -150%;
+				margin: -132px 0 0 -129px;
+			}
+			.showbox {
+				top: 50%;
+			}
+			.pigLife {
+				margin: 15px 0 0 20%;
+				height: 15px;
+				width: 200px;
+				color: #fff;
+				position: relative;
+			}
+			.pigLife:before {
+				content: '得分： ';
+				color: #000;
+				padding: 0 5px 0 0;
+				top: -2px;
+				width: 100%;
+				position: absolute;
+				right: 200px;
+				display: inline-block;
+				text-align: right;
+			}
+			.pigLife:after {
+				content: '';
+				width: 200px;
+				height: 15px;
+				position: absolute;
+				left: 0;
+			}
+			
+			#scores {
+				width: 200px;
+				display: block;
+				height: 15px;
+				position: absolute;
+				z-index: 10;
+				color: #000;
+			}
+			
+			.changer {
+				background: url(images/chang1.png) no-repeat;
+				background-size: contain;
+				width: 83px;
+				height: 113px;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				margin: 0 0 0 -42px;
+			}
+			
+			.changershut {
+				background: url(images/chang2.png) no-repeat;
+				background-size: contain;
+			}
+			
+			.pos_r {
+				position: relative;
+				height: 100%;
+			}
+			
+			.pos_r p {
+				font: 18px/28px "microsoft yahei";
+				color: #df1f15;
+				padding: 70px 0 0;
+				text-align: center;
+			}
+			
+			.btn_again {
+				height: 35px;
+				position: absolute;
+				left: 18px;
+				bottom: 20px;
+				width: 100px;
+				text-align: center;
+				text-indent: -1000px;
+			}
+			
+			.btn_share {
+				height: 35px;
+				position: absolute;
+				right: 18px;
+				bottom: 20px;
+				width: 100px;
+				text-align: center;
+				text-indent: -1000px;
+			}
+			.getGood {
+				display: block;
+				width: 132px;
+				overflow: hidden;
+				line-height: 43px;
+				height: 43px;
+				text-align: center;
+				text-indent: -1000px;
+				background: url(images/redbox.png) no-repeat;
+				background-size: 100% 100%;
+				margin: 15px auto 0;
+			}
+			
+			.time {
+				padding: 20px 0 0 15px;
+			}
+			
+			.share {
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 1000;
+				background: url(images/share.png) no-repeat center center;
+				background-size: 100% 100%;
+			}
+			.box_zongzi{position: relative;}
+			.zongzi{position: absolute;display: none;
+				width: 20px;
+				height: 20px;
+				background: url(images/zongzi.png) no-repeat center center;
+				background-size: cover;
+			}
+		</style>
+	</head>
+
+	<body class="canClick">
+		<div class="frontPage">
+			<a class="startGame">开始游戏</a>
+		</div>
+		<div class="share"></div>
+		<div class="bombBox">
+			<div class='pos_r'>
+				<p onclick="location.reload()">太棒了！<br />您游戏得分<span id="secondLong"></span></p>
+				<a href="#" class="getGood">查看排名</a>
+				<a class="btn_again" onclick="location.reload()">再玩一次</a>
+				<a class="btn_share">分享</a>
+			</div>
+		</div>
+		<div class="bombBox">
+			<div class='pos_r'>
+				<p onclick="location.reload()">你没有保护好嫦娥姐姐！</p>
+				<a class="btn_again" onclick="location.reload()">再玩一次</a>
+				<a class="btn_share">分享</a>
+			</div>
+		</div>
+		<p class="pigLife"><span id="scores"></span></p>
+		<p class="time">时间：<span id='t1'>20</span></p>
+		<div class="boss" style="bottom: 20px;left:100px">
+			<div class="box_zongzi">
+				<div class="zongzi" style="left: 0;top: -15px;z-index: 10;"></div>
+				<div class="zongzi" style="left: 15px;top: -15px;z-index: 10;"></div>
+				<div class="zongzi" style="left: 30px;top: -15px;z-index: 10;"></div>
+				<div class="zongzi" style="left: 45px;top: -15px;z-index: 10;"></div>
+				<div class="zongzi" style="left: 60px;top: -15px;z-index: 10;"></div>
+				<div class="zongzi" style="left: 75px;top: -15px;z-index: 10;"></div>
+				<div class="zongzi" style="left: 10px;top: -25px;z-index: 9;"></div>
+				<div class="zongzi" style="left: 20px;top: -25px;z-index: 9;"></div>
+				<div class="zongzi" style="left: 30px;top: -25px;z-index: 9;"></div>
+				<div class="zongzi" style="left: 40px;top: -25px;z-index: 9;"></div>
+				<div class="zongzi" style="left: 55px;top: -30px;z-index: 8;"></div>
+				<div class="zongzi" style="left: 60px;top: -30px;z-index: 8;"></div>
+				<div class="zongzi" style="left: 45px;top: -30px;z-index: 8;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 45px;top: -35px;z-index: 7;"></div>
+				<div class="zongzi" style="left: 60px;top: -35px;z-index: 7;"></div>
+			</div>
+			<p style="text-align: center;color: #fff;" id="showvalue"></p>
+		</div>
+		<div class="boxall">
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+			<div class='dan'></div>
+		</div>
+		<script>
+			//产生一个对象 这个对象就是屈原（person_quyuan）  他有公共属性和公共方法（my）
+			var o_globle = function(person_quyuan, my) {//person_quyuan.id_qy获取到屈原这个dom
+				var that = {},
+					scores = 0,
+					seconds = 0,
+					o_width = person_quyuan.id_qy.offsetWidth,//person_quyuan的宽度
+					o_height = person_quyuan.id_qy.offsetHeight,//person_quyuan的高度
+					boss = person_quyuan.id_qy,//此时boss代表屈原
+					ddDom = document.getElementsByClassName('boxall')[0].querySelectorAll('div'),//此处的boxall div应该用参数传递比较好 解耦
+					zongzi = document.querySelectorAll('.zongzi'),//此处zongzi 道理同上
+					pagex, pagey,ebottom, scores_box = document.querySelector('#scores'),//此处zongzi 道理同上
+					milliTimer, timechange = 20,
+					t1 = document.getElementById('t1'),//此处zongzi 道理同上
+				secondLong = document.querySelector('#secondLong');//此处zongzi 道理同上
+				var changer = document.querySelector('.changer');//此处zongzi 道理同上
+				//以上为私有变量
+				var game_start = document.querySelector('.startGame');//此处zongzi 道理同上
+				//目标的共有属性和方法
+				var my = my || {
+						w_width: window.innerWidth,//窗口的宽度
+						w_height: window.innerHeight,//窗口的高度
+						count: 0,
+						eventarr: [],
+						domshowvalue: document.getElementById('showvalue'),
+						int: function() {//初始化body的宽高
+							document.body.style.width = my.w_width + 'px';
+							document.body.style.height = my.w_height + 'px';
+						},
+						//粽子 黄酒 和 玩偶 此处的dd就像是一个工厂 生产  粽子 黄酒 和 玩偶
+						dd: function(spec1, my1){
+							var that = {},
+								xpos = [1/4, 3/5, 4/5],
+								objvalue = [-10, 20, -10, 20, -10, 20, -10, 20, 0, 0],
+								objclass = ['dan', 'dan1','dan', 'dan1','dan', 'dan1','dan', 'dan1', 'dan2', 'dan2'];
+							that.y = -50;
+							spec1.domId.className = objclass[spec1.value] + ' opc';
+							spec1.domId.style.top = '-50px';
+							//that.timer2 这个属性 表示对象可以自己走
+							that.timer2 = setInterval(function(){
+								that.x = parseInt(xpos[spec1.d_direction] * my.w_width); //d_direction的值决定了x轴的位置
+								that.y += spec1.y_speed;
+								spec1.domId.style.left = that.x + 'px';
+								spec1.domId.style.top = that.y + 'px';
+								person_quyuan.x = parseInt(person_quyuan.id_qy.style.left);
+								person_quyuan.y = parseInt(my.w_height)-parseInt(person_quyuan.id_qy.style.bottom)-40;
+								//接到粽子接到粽子接到粽子接到粽子接到粽子
+								console.log(person_quyuan.x);
+								if (Math.floor(person_quyuan.y-that.y) < 5 && Math.floor(person_quyuan.y-that.y) > -5 && ((Math.floor(person_quyuan.x - that.x) > 0 && Math.floor(person_quyuan.x - that.x) < 15)  || (Math.floor(that.x - person_quyuan.x) > 0 && Math.floor(that.x - person_quyuan.x) < 95))) {
+									if(spec1.domId.className=='dan1 opc'){
+										zongzi[my.count].style.display='block';
+										my.count++;
+									}
+									my.domshowvalue.innerHTML = objvalue[spec1.value];
+									scores += objvalue[spec1.value];
+									scores_box.innerHTML = scores;
+									clearInterval(that.timer2);
+									if (spec1.domId.className == 'dan2 opc'){
+										fn_gameover()
+									}
+									spec1.domId.className = '';
+									my.eventarr[spec1.i] = null;
+									
+								}
+								//dd回到原点
+								if (that.y > parseInt(my.w_height)) {
+									clearInterval(that.timer2);
+									spec1.domId.className = '';
+									spec1.domId.style.left = my.w_width / 2 + 'px';
+									spec1.domId.style.top = '50px';
+									my.eventarr[spec1.i] = null;
+								} //射出界面 回到原点
+							}, 5);
+							return that;
+						}
+					} //公共的方法 属性end
+				my.int();
+				var i = 0;
+				//游戏结束
+				var fn_gameover = function() {
+					var boxshow=document.getElementsByClassName('boxall')[0].querySelectorAll('.opc');
+					for(var i=0;i<boxshow.length;i++){
+						boxshow[i].className='';
+					}
+					clearInterval(that.timer);
+					clearInterval(milliTimer); //游戏结束
+					boss.className='boss gameove';
+					person_quyuan.bombBox[0].className = 'bombBox showbox';
+					secondLong.innerHTML=scores;
+					return false;
+				};
+				that.touchstart = document.body.addEventListener('touchstart', function(e){
+					seconds += 1;
+					if (e.target.className == 'boss') {
+
+					}
+					e = e.changedTouches[0];
+					pagex = e.pageX;
+					pagey = e.pageY;
+					ebottom = parseInt(person_quyuan.id_qy.style.bottom);
+				});
+				that.touchstart = document.body.addEventListener('touchmove', function(e) {
+					e = e.changedTouches[0];
+					var objleft = person_quyuan.id_qy.style.left;
+					if (e.target.className == 'boss') {
+						var eY= ebottom -(e.pageY-pagey);
+						person_quyuan.id_qy.style.left = e.pageX + 'px';
+						console.log('move:'+e.pageX);
+						person_quyuan.id_qy.style.bottom = eY + 'px';
+					}
+					event.preventDefault();
+				});
+				that.touchend = document.body.addEventListener('touchend', function(e) {
+					e = e.changedTouches[0];
+					//游戏开始游戏开始游戏开始游戏开始游戏开始游戏开始游戏开始
+					if (e.target.className == 'startGame') {
+						document.querySelector('.frontPage').style.display = 'none';
+						milliTimer = setInterval(function() {
+							timechange -= 1/2;
+							if(timechange<=5){t1.style.color='#FF0000'};
+							t1.innerHTML = Math.ceil(timechange);
+							if(timechange<=0){fn_gameover()}
+							i = i++ < 50 ? i : 0;
+							if (!my.eventarr[i]) {
+								my.eventarr[i] = my.dd({
+									domId: ddDom[i],
+									time: 40,
+									value: parseInt(Math.random() * 10),
+									d_direction: parseInt(Math.random() * 3),
+									y_speed: 1+parseInt(Math.random() * 3),
+									i: i
+								});
+							}
+							if (!my.eventarr[i]) {
+								my.eventarr[i + 1] = my.dd({
+									domId: ddDom[i + 1],
+									time: 40,
+									value: parseInt(Math.random() * 10),
+									d_direction: parseInt(Math.random() * 3),
+									x_speed: vx,
+									y_speed: 1+parseInt(Math.random() * 3),
+									i: i + 1
+								});
+							}
+							if (!my.eventarr[i + 2]) {
+								my.eventarr[i + 2] = my.dd({
+									domId: ddDom[i + 2],
+									time: 40,
+									value: parseInt(Math.random() * 10),
+									d_direction: parseInt(Math.random() * 3),
+									y_speed: 2,
+									i: i + 2
+								});
+							}
+						}, 500)
+					}
+					var sharebox = document.querySelector('.share');
+					if (e.target.className == 'btn_share') {
+						sharebox.style.display = 'block';
+					} else {
+						sharebox.style.display = 'none';
+					}
+				});
+				return that;
+			}
+			var qy1 = o_globle({
+				dx: 0,
+				dy: 0,
+				d_direction: 0,
+				x: 50,
+				y: 100,
+				time: 30,
+				pigLife: document.querySelector('.pigLife'),
+				bombBox: document.querySelectorAll('.bombBox'),
+				id_qy: document.querySelector('.boss'),
+				getMillisecond: function() {
+					return startTime = new Date().getTime();
+				}
+			});
+		</script>
+	</body>
+
+</html>

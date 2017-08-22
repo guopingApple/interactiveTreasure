@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" />
+		<title>挑家电</title>
+		<style>
+			body,div,p{margin:0;}
+			html,body,.content,.gameBox{width:100%; height: 100%; overflow: hidden;}
+			.loading{transition:all 2s linear 0s; top:0;background: url(img/bg1.jpg) no-repeat center center;background-size: cover; position: absolute;left:0;top: 0;width: 100%;height:100%; z-index: 100;}
+			.loadBox{ background: url(img/1.png) no-repeat; background-size: cover; width: 232px; height: 169px; position: absolute; left: 50%;top: 33%;margin-left:-116px}
+			.loadBox2{ background: url(img/2.png) no-repeat; background-size:232px 169px; width: 232px; height:0; animation: loading 1s ease 0.5s infinite;-webkit-animation: loading 1s ease 0.5s infinite;}
+			@keyframes loading{0%{hieght:0;}100%{height: 100%;}}
+			@-webkit-keyframes loading{0%{hieght:0;}100%{height: 100%;}}
+			.tit{background: url(img/3.png) no-repeat; background-size: contain; width: 90%; height: 30%; position: absolute; top: 12%; left: 5%;}
+			.ruleBox{transition: all 1s linear 0s; -webkit-transition: all 1s linear 0s; top: 0; width: 100%;height: 100%;background: url(img/bg2.jpg) center 0 no-repeat; background-size: cover; position: absolute; z-index: 10;}
+			.rule{ transition: all 1s linear 0s; -webkit-transition: all 1s linear 0s;top:-110%; width: 100%;height: 100%;background: url(img/bg3.jpg) no-repeat center center; background-size: cover; position: absolute; z-index: 10;}
+			.btnRule{width: 40%; height: 50px;background: url(img/btn1.png) no-repeat; position: absolute;bottom: 10%;right: 55%;background-size: contain;}
+			.btnStart{width: 40%; height: 50px;background: url(img/btn2.png) no-repeat; position: absolute;bottom: 10%;left: 55%;background-size: contain;}
+			.content{background:url(img/bg4.jpg) no-repeat center center; background-size:cover ; display: none;}
+			.gameBox{ margin: 10px 0 0 8%; position: relative;}
+			.gameBox div{ transition: all 0.5s ease 0s;width: 60px; height: 60px; border-radius:50%; overflow: hidden; position: absolute;}
+			.gameBox div span{transition: all 0.2s ease 0s; word-break: 100%;height: 100%; display: block;background: url(img/cbg.png) no-repeat center center;background-size: cover; }
+			.girl1{background: url(img/c1.png) no-repeat center center;background-size: cover; }
+			.girl2{background: url(img/c2.png) no-repeat center center;background-size: cover;}
+			.girl3{background: url(img/c3.png) no-repeat center center;background-size: cover;}
+			.girl4{background: url(img/c4.png) no-repeat center center;background-size: cover;}
+			.pTime{ position: absolute;right: 10px; top: 10px; background: rgba(0,0,0,0.6);padding: 5px;border-radius: 5px;color:#fff;}
+			.startGame{ -webkit-animation: moving 2s ease 0s infinite; background:url(img/btnstart.png) no-repeat center center; background-size: contain; display: block; width:208px; height: 60px; position: absolute;left: 50%; z-index:5; margin-left:-104px;bottom: 5%; border-radius:30px; text-align: center;}
+			.result{position: absolute; top: -100%; background: url(img/suc.png) no-repeat; background-size:cover ; width: 320px; height: 372px; z-index: 10; left: 50%; margin: 0 0 0 -160px;}
+			.result2{position: absolute; top: -100%; background: url(img/lose.png) no-repeat; background-size:cover ; width: 320px; height: 372px; z-index: 10; left: 50%; margin: 0 0 0 -160px;}
+			.result p,.result2 p{text-align: center; font: 32px/40px "microsoft heiti"; padding-top:212px ;}
+			.result .s01,.result2 p .s01{ font-weight: normal;}
+			.layer{ width: 100%; height: 100%; background: rgba(0,0,0,.8); position: absolute;z-index: 5; display: none; top: 0; left: 0;}
+			.tit2{background: url(img/11.png) no-repeat center center;background-size: contain; width: 80%;height: 20%; margin: 40px auto 20px;}
+			.tit_bg2{background: url(img/22.png) no-repeat center center;background-size: contain;}
+			.tit_bg3{background: url(img/33.png) no-repeat center center;background-size: contain;}
+			.btnAgain{width: 122px; height: 40px;background: url(img/again.png) no-repeat; position: absolute;bottom: 10%;left: 50%; margin-left:-135px ;background-size: contain;}
+			.btnShare{width: 122px; height: 40px;background: url(img/sharebtn.png) no-repeat; position: absolute;bottom: 10%;left: 50%; margin-left:15px ;background-size: contain;}
+			.layer2{ width: 100%; height: 100%; background: url(img/share.png) center center; background-size:cover ; position: absolute;z-index: 50; display: none; top: 0; left: 0;}
+		</style>
+	</head>
+	<body>
+		<img src="img/300.png" style="position: absolute;left: -200%;" />
+		<div class="loading">
+			<div class="tit"></div>
+			<div class="loadBox">
+				
+				<div class="loadBox2"></div>
+			</div>
+		</div>
+		<div class="content" style="display: block;">
+			<div class="ruleBox">
+				<div class="rule"></div>
+				<a class="btnRule"></a>
+				<a class="btnStart"></a>
+			</div>
+			<div class="tit2"></div>
+			<p class="startGame"></p>
+			<p class="pTime">时间:<span class="t1">0</span>:<span class="t2">0</span><span class="t3">0</span></p>
+			<div class="gameBox">
+			</div>
+             <!--
+             	作者：liangxiaojie@daoyoudao.com
+             	时间：2016-04-08
+             	描述：开始游戏
+             -->
+             	<div class="result">
+             	<p><span id='time' style="color: #e13500;"></span><span class="s01" style="color: #e13500; font-size: 14px;">秒</span></p>
+				</div>
+				<div class="result2">
+             	<p><span id='time2' style="color: #e13500;"></span><span class="s01" style="color: #e13500; font-size: 14px;">秒</span></p>
+				</div>
+				<div class="layer">
+					<a class="btnAgain"></a>
+					<a class="btnShare"></a>
+				</div>
+				<div class="layer2"></div>
+		</div>
+		<script>
+		//开始的时候有四个 两对
+		(function(){
+			var $=function(domName){
+				return document.querySelector(domName);
+			}
+			var timelong=0;
+			var timerloading=setInterval(function(){timelong+=1},1000);
+			window.onload=function(){
+				var loadBox=$('.loading');
+				clearInterval(timerloading)
+				if(timelong<3){setTimeout(function(){loadBox.style.display='none'},3000)}
+				else{loadBox.style.display='none';}
+				
+			}
+			var objGame=function(spec,my){
+				var that={};
+				that.count=0;that.etargetClass;that.etargetClass2;that.num=spec.num,that.index1,that.index2,that.timer,that.timer2,that.countNum=0;
+				var girlArr=['girl1','girl2','girl3','girl4'];
+				var girlArrActive=function(n){
+					if(Math.ceil(n/4)==1){girlArrActive=girlArr.slice(0,2);}
+					if(Math.ceil(n/4)==2){girlArrActive=girlArr}
+					if(Math.ceil(n/4)==4){girlArrActive=girlArr.concat(girlArr);}
+					return girlArrActive.concat(girlArrActive)
+				}(spec.num)
+				var random_num=function(i){
+					var r_num=Math.floor(Math.random()*i);
+					return r_num;
+				};
+				var numArr=[],obj={};//一定要把数组和对象字面量化
+				var arr=function(n,x){
+					for(var a=0;a<n;a++){
+						var a_rand=random_num(x);
+						if(!obj[a_rand]){numArr.push(girlArrActive[a_rand]);obj[a_rand]=1;}
+						else{n+=1}
+					};
+					return numArr;
+				}(spec.num,spec.num);
+				var objBox=$(spec.className);
+				var HTMLtxt='';
+				var w_width=window.innerWidth;
+				for(var i=0;i<spec.num;i++){
+					var paraNum=spec.num/2>4?4:Math.floor(spec.num/2);
+					var paraNum2=paraNum<4?0.38:0.2;
+					var paraNum3=paraNum<4?0.08:0.01;
+					var y=Math.floor(i%paraNum);
+					var z=i/paraNum<1?0:Math.floor(i/paraNum);
+					var ww=Math.floor(w_width*paraNum2);
+					var wmarginLeft=Math.floor(w_width*paraNum3)
+					HTMLtxt+='<div style="width:'+ww+'px;height:'+ww+'px;left:'+Math.floor(y*ww+y*wmarginLeft)+'px;top:'+Math.floor(z*ww+z*wmarginLeft)+'px" class="'+arr[i]+'"><span class="canClick"></span></div>'	
+				}
+				objBox.innerHTML=HTMLtxt;
+				that.objSpan=document.getElementsByTagName('span');
+				 for (var i = 0;i < that.objSpan.length; i++) {
+			      that.objSpan[i].index = i;
+			    }
+				return that;
+			};
+			var obj=objGame({num:4,className:'.gameBox'}),canDelate=false,canDelate2=false;//此处的num值表示美女的个数 布局
+			var milliTimer,timechange=0,t1=$('.t1'),t2=$('.t2'),t3=$('.t3');
+			var t4=$('#time'),t5=$('#time2'),rank=$('#rank');
+			var rankArr=['超过了95%的玩家，分享你的成绩到朋友圈就有机会获奖','超过了90%的玩家，分享你的成绩到朋友圈就有机会获奖','超过了60%的玩家','超过了10%的玩家'];
+			var timerInterval=function(){
+				milliTimer=setInterval(function(){
+							timechange+=1;
+							t3.innerHTML=timechange%10%10;
+							t2.innerHTML=Math.floor(timechange/10)%10;
+							t1.innerHTML=Math.floor(timechange/100);
+							t4.innerHTML=Math.floor(timechange/100);
+							t5.innerHTML=Math.floor(timechange/100);
+							var num=Math.floor(Math.floor(timechange/100)/20);//决定排名
+							//rank.innerHTML=rankArr[num<3?num:3]
+						},10)
+			}
+			var start=false,oTit=$('.tit2');
+			var playGame=function(e,num){
+				var e = e.changedTouches[0];
+				if(e.target.className=='startGame'){
+					e.target.style.display='none';
+					timerInterval();
+					start=true;
+				}
+				if(e.target.className=='rule'){
+					e.target.style.top='-100%';
+					return false;
+				}
+				if(e.target.className=='btnRule'){
+					$('.rule').style.top='0';
+					return false;
+				}
+				if(e.target.className=='btnStart'){
+					$('.ruleBox').style.top='-100%';
+					return false;
+				}
+				if(e.target.className=='btnAgain'){
+					location.reload();
+				}
+				if(e.target.className=='btnShare'){
+					$('.layer2').style.display='block';
+				}
+				if(e.target.className=='layer2'){
+					e.target.style.display='none';
+				}
+				if(e.target.nodeName.toLocaleLowerCase()=='span'&&e.target.className=='canClick'&&start==true){
+					e.target.className='';
+					obj.count+=1;
+					if(obj[1]&&canDelate){clearInterval(obj[1])}
+					if(obj[2]&&canDelate2){clearInterval(obj[2])}
+					e.target.style.opacity='0';
+					if(obj.count%2==1){
+						obj.index1=e.target.index;
+						obj.etargetClass=e.target.parentNode.className;
+						//e.target.style.display='none';
+					}
+					else if(obj.count%2==0){
+						obj.index2=e.target.index;
+						obj.etargetClass2=e.target.parentNode.className;
+						if(obj.etargetClass===obj.etargetClass2){
+						if(obj.timer){clearTimeout(obj.timer);obj.timer=null}
+						if(obj.timer2){clearTimeout(obj.timer2);obj.timer2=null}
+						obj[2]=setTimeout(function(){
+							obj.objSpan[obj.index1].parentNode.style.display='none';
+							obj.objSpan[obj.index2].parentNode.style.display='none';
+							obj.countNum+=1;
+							if(obj.countNum==obj.num/2&&obj.countNum<8){
+								var newnum=obj.num*2;
+								
+								if(obj.countNum<4){oTit.className='tit2 tit_bg2';}
+								if(obj.countNum>=4){oTit.className='tit2 tit_bg3';}
+								obj=objGame({num:newnum,className:'.gameBox'})
+							}
+							else if(obj.countNum>=8){
+								clearInterval(milliTimer);
+								//console.log('游戏结束');
+								oTit.style.display='none';
+								$('.layer').style.display='block';
+								if(Math.floor(timechange/100)<=30){$('.result').style.top='8%';document.title='在美的家电节挑家电游戏中，您用时'+Math.floor(timechange/100)+'秒完成了游戏，恭喜你！'}
+								if(Math.floor(timechange/100)>30){$('.result2').style.top='8%';document.title='在美的家电节挑家电游戏中，您用时'+Math.floor(timechange/100)+'秒完成了游戏，还得加油'}
+							}
+							canDelate2=true;
+						},80);
+						}
+						else{
+							obj[1]=setTimeout(function(){
+								for(var i=0;i<obj.objSpan.length;i++){
+									obj.objSpan[i].style.opacity='1';
+									obj.objSpan[i].className='canClick';
+								}
+								canDelate=true;
+							},100)
+						}
+					}
+				}
+			}
+			document.body.addEventListener('touchstart', function (e){
+					e = e.changedTouches[0];
+					event.preventDefault();
+			});
+			document.body.addEventListener('touchmove', function (e){
+					e = e.changedTouches[0];
+					event.preventDefault();
+			});
+			document.addEventListener('touchend',playGame,false)//事件委托 false 表示冒泡
+		}())//闭包	
+		</script>
+	</body>
+</html>

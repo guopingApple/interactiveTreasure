@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>保护嫦娥姐姐</title>
+		<style>
+			body,div,p{margin:0;}
+			html,body{width:100%; height: 100%; overflow: hidden;}
+			body{ background: url(images/2.jpg) no-repeat; background-size: cover;}
+			.yao1{width:55px;height:50px;border-radius:50%;background:url(images/pig1.png) no-repeat; background-size: contain; position: absolute;margin: -90px 0 0 -55px;}
+			.goaway{-webkit-transform:translate(-1000px,-2000px); -webkit-transition: all 10s ease 0s;}
+			.shut{background: #FF0000;}
+			.dan{opacity:0;width:30px;height:30px; background: url(images/6.png) no-repeat center center;background-size:cover;position: absolute;left:50%;top:100%;margin: -90px 0 0 -55px;}
+			.opc{ opacity: 1;}
+			.frontPage{ background:url(images/1.jpg) no-repeat; background-size: cover; width: 100%; height: 100%; position: relative;z-index: 10;}
+			.startGame{ -webkit-animation: moving 2s ease 0s infinite; background: #fff; display: block; width: 50%; height: 40px; line-height:40px;position: absolute;left: 25%;bottom: 20px; border-radius:30px; text-align: center;}
+			@-webkit-keyframes moving{0%{transform: translateY(0px);}50%{transform: translateY(-10px);}100%{transform: translateY(0px);}}
+			.bombBox{  transition: top 2s ease 0.5s; background: url(images/tips.png) no-repeat; background-size: cover; width:258px;height:265px;position: absolute; left: 50%;top: -150%; margin: -132px 0 0 -129px;}
+			.showbox{ top:50%;}
+			.pigLife{ margin: 15px 0 0 20%;  height: 15px; width: 200px; color: #fff; position: relative; border: 1px solid #999; border-radius:5px;}
+			.pigLife:before{content: '猪八戒 ';color: #000; padding: 0 5px 0 0; top: -2px; width: 100%; position: absolute; right:200px; display: inline-block; text-align: right;}
+			.pigLife:after{content:''; width:200px;height: 15px; position: absolute;left: 0;}
+			#scores{background: #f7e09a; width: 200px;display: block;height: 15px; position: absolute; z-index: 10;border-radius:5px;}
+			.changer{ background: url(images/chang1.png) no-repeat; background-size: contain; width: 83px;height: 113px;position: absolute;left:50%;bottom: 0; margin: 0 0 0 -42px;}
+			.changershut{background: url(images/chang2.png) no-repeat; background-size: contain;}
+			.pos_r{ position: relative; height: 100%;}
+			.pos_r p{ font:18px/28px "microsoft yahei"; color: #df1f15; padding: 70px 0 0; text-align: center;}
+			.btn_again{ height: 25px; position: absolute;left: 18px;bottom: 30px; width: 100px; text-align: center;text-indent: -1000px;}
+			.btn_share{ height: 25px; position: absolute;right: 18px;bottom: 30px; width: 100px; text-align: center;text-indent: -1000px;}
+			.getGood{ display: block; width: 132px; overflow: hidden; line-height: 43px; height: 43px; text-align: center; text-indent: -1000px; background: url(images/redbox.png) no-repeat;background-size: 100% 100%; margin: 15px auto 0;}
+			.time{ padding: 20px 0 0 15px;}
+			.share{ display: none; width: 100%;height: 100%;position: absolute;z-index: 1000;background: url(images/share.png) no-repeat center center;background-size: 100% 100%;}
+		</style>
+	</head>
+	<body class="canClick">
+		<div class="frontPage">
+			<a class="startGame">开始游戏</a>
+		</div>
+		<div class="share"></div>
+		<div class="bombBox">
+			<div class='pos_r'>
+			<p onclick="location.reload()">太棒了！<br />您用<span id="secondLong"></span>秒赶跑了猪八戒</p>
+			<a href="http://m.qy.u-kor.cn/webcoupon/coupon_addCouponInfo.do?tenantid=20747&couponManager.couponid=627" class="getGood">领取奖励</a>
+			<a class="btn_again" onclick="location.reload()">再玩一次</a>
+			<a class="btn_share">分享</a>
+			</div>
+		</div>
+		<div class="bombBox">
+			<div class='pos_r'>
+			<p onclick="location.reload()">你没有保护好嫦娥姐姐！</p>
+			<a class="btn_again" onclick="location.reload()">再玩一次</a>
+			<a class="btn_share">分享</a>
+			</div>
+		</div>
+		<p class="pigLife"><span id="scores"></span></p>
+		<p class="time">时间：<span id='t1'>0</span>:<span id='t2'>0</span><span id='t3'>0</span></p>
+		<div class="changer"></div>
+		<div class="yao1"></div>	
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<div class='dan'></div>
+		<script>
+			//产生一个对象 这个对象就是目标 他有公共属性和方法my
+			var o_globle=function(y_spec,my){
+				var that={},scores=0,gotimer,seconds=0,o_width=y_spec.id_yg.offsetWidth,o_height=y_spec.id_yg.offsetHeight,vx,vy,
+				speed_option=1,pagex,pagey,scores_box=document.querySelector('#scores'),milliTimer,timechange=0,t1=document.getElementById('t1'),t2=document.getElementById('t2'),t3=document.getElementById('t3');
+				var secondLong=document.querySelector('#secondLong');
+				var changer=document.querySelector('.changer');
+				//以上为私有变量
+				var game_start=document.querySelector('.startGame');
+				//目标的共有属性和方法
+				var my=my || {w_width:window.innerWidth,w_height:window.innerHeight,d:1,eventarr:[],
+					int:function(){document.body.style.width=my.w_width+'px';
+						document.body.style.height=my.w_height+'px';},
+					gobackclass:setTimeout(function(){y_spec.id_yg.className='yao1';},200),starttime:0,starttime2:0,endtime:0,endtime2:0,canshut:true,
+					dd:function(spec1,my1){
+						var that={};
+							spec1.domId.className='dan opc';
+							that.timer2=setInterval(function(){
+								//spec1.domId.style.left=x1+'px';
+								//spec1.domId.style.top=y1+'px';
+								if(spec1.d_direction==-1){
+									that.x-=spec1.x_speed;
+									that.y-=spec1.y_speed;
+									spec1.domId.style.left=that.x+'px';
+									spec1.domId.style.top=that.y+'px';
+								}
+								if(spec1.d_direction==1){
+									that.x+=spec1.x_speed;
+									that.y-=spec1.y_speed;
+									spec1.domId.style.left=that.x+'px';
+									spec1.domId.style.top=that.y+'px';
+								}
+								//目标被打中
+								if(Math.floor(Math.abs(that.y-y_spec.y))<40 && Math.floor(Math.abs(that.x-y_spec.x))<40){
+									scores+=1;
+									scores=scores>25?25:scores;
+									scores_box.style.width=(200-8*Math.abs(scores))+'px';
+									clearInterval(that.timer2);
+									//y_spec.id_yg.className='yao1 shut';
+									y_spec.y-=30;
+									y_spec.id_yg.style.top=y_spec.y+'px';
+									spec1.domId.style.left=my.w_width/2+'px';
+									spec1.domId.style.top=my.w_height+'px';
+									spec1.domId.className='dan';
+									my.eventarr[spec1.i]=null;
+								}//打中 导弹回到原点
+								if(that.y<0||that.x<0||that.x>my.w_width){
+									clearInterval(that.timer2);
+									spec1.domId.className='dan';
+									spec1.domId.style.left=my.w_width/2+'px';
+									spec1.domId.style.top=my.w_height+'px';
+									my.eventarr[spec1.i]=null;
+								}//射出界面 回到原点
+							},spec1.time/2);
+							that.y=my.w_height;
+							that.x=my.w_width/2;
+						return that;
+						}
+					}//公共的方法 属性
+				my.int();
+				var i=0;
+				//目标的运动轨迹
+				var fn_timer=function(){
+					that.timer=setInterval(function(){
+					if(y_spec.x<=55){y_spec.x+=5;my.d=1};
+					if(y_spec.x>=my.w_width){y_spec.x-=3;my.d=-1};
+					if(y_spec.x>55&&y_spec.x<my.w_width&&my.d==1){y_spec.x+=5}
+					if(y_spec.x>55&&y_spec.x<my.w_width&&my.d==-1){y_spec.x-=5}
+					if(y_spec.y<my.w_height-50){y_spec.y+=1}
+					//console.log(y_spec.x)
+					if(y_spec.y>=my.w_height-80||scores==25){
+						y_spec.id_yg.className='yao1 goaway';document.body.className='';
+						if(scores==25){
+							y_spec.bombBox[0].className='bombBox showbox';
+						}
+						else{
+							y_spec.bombBox[1].className='bombBox showbox';
+						}
+						secondLong.innerHTML=Math.floor(timechange/100);
+						clearInterval(that.timer);clearInterval(milliTimer);//游戏结束
+						return false;}
+					y_spec.id_yg.style.left=y_spec.x+'px';
+					y_spec.id_yg.style.top=y_spec.y+'px';
+					//if(my.w_height-y_spec.y<30){clearInterval(that.timer);alert('game over');};
+					},y_spec.time)
+				};
+				
+				
+				
+				that.touchstart=document.body.addEventListener('touchstart', function (e){
+					//alert('sdfafa')
+					seconds+=1;
+					if(e.target.tagName=='BODY'||e.target.className=='yao1'){
+						if(seconds%2==1){my.starttime=new Date().getTime();}
+						else{my.starttime2=new Date().getTime();}
+					}
+					e = e.changedTouches[0];
+					pagex=e.pageX;
+					pagey=e.pageY;
+					speed_option=Math.floor(Math.abs((my.w_height-pagey)/Math.abs(pagex-my.w_width/2)));
+					//speed_option>1?speed_option:1/speed_option
+					//console.log('pagex:'+(pagex-my.w_width/2)+'pagey'+(my.w_height-pagey)+'speed_option'+speed_option);
+					//y轴速度大于x轴速度 vy > vx
+					vy=Math.floor(400*Math.sin(Math.atan(speed_option)))/100;
+					vx=Math.floor(400*Math.cos(Math.atan(speed_option)))/100;
+				});
+				that.touchstart=document.body.addEventListener('touchmove', function (e){
+					e = e.changedTouches[0];
+					event.preventDefault();
+				});
+				//发射子弹
+				that.touchend=document.body.addEventListener('touchend', function (e) {
+					//alert('sdfafa')
+					if(e.target.tagName=='BODY'||e.target.className=='yao1'){
+						if(seconds%2==0){my.endtime=new Date().getTime();my.endtime2=0}
+						else{my.endtime2=new Date().getTime();my.endtime=0}
+					}
+					e = e.changedTouches[0];
+					changer.className='changer';
+					if(e.target.className=='startGame'){
+						document.querySelector('.frontPage').style.display='none';
+						fn_timer();
+						milliTimer=setInterval(function(){
+							timechange+=1;
+							t3.innerHTML=timechange%10%10;
+							t2.innerHTML=Math.floor(timechange/10)%10;
+							t1.innerHTML=Math.floor(timechange/100);
+						},10)
+					}
+					//点击时间超过1000ms才会发射子弹
+					
+					if((e.target.tagName=='BODY'||e.target.tagName=='yao1')&& Math.abs(my.starttime2-my.starttime)>100){
+						if(pagex<my.w_width/2){y_spec.d_direction=-1}
+						else{y_spec.d_direction=1}
+						i=i++<20?i:0;
+						if(!my.eventarr[i]){
+							var ddDom=document.querySelectorAll('.dan')[i];
+						my.eventarr[i]=my.dd({domId:ddDom,time:30,
+						d_direction:y_spec.d_direction,x_speed:vx,y_speed:vy,i:i});
+						changer.className='changer changershut';
+						}
+						my.canshut=false;
+					}
+					if(e.target.className=='btn_share'){
+						sharebox.style.display='block';
+					}else{sharebox.style.display='none';}
+				});
+			return that;
+			}
+			var yg1=o_globle({dx:0,dy:0,d_direction:0,x:50,y:100,
+				time:30,
+				pigLife:document.querySelector('.pigLife'),bombBox:document.querySelectorAll('.bombBox'),
+				id_yg:document.querySelector('.yao1'),
+				getMillisecond:function (){
+				 return startTime = new Date().getTime();    
+			}});	
+			var sharebox=document.querySelector('.share');
+			
+		</script>
+		<!--
+		<script type="text/javascript" src="js/obj.js" ></script>
+		-->
+	</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  <meta content="yes" name=" apple-mobile-web-app-capable" /> 
+  <meta http-equiv="pragma" content="no-cache" /> 
+  <title>建设银行</title>
+  <link rel="stylesheet" href="css/animatemin.css" />
+  <link rel="stylesheet" href="css/jianshe1.css" /> 
+  <script src="js/jquery.js"></script> 
+  </head>
+  <body> 
+  <img src="images/300.jpg" style=" position:absolute;left:-200%;" /> 
+  <div id="loading"> 
+</div> <div id="wrap"> 
+ <div id="scrollContent"> 
+  <section class="content" id="c0"> 
+   <p id="pptit01" class="ptit01"><img src="images/logo.png" width="100%" /></p> 
+   <p id="pptit02" class="ptit02"><img src="images/110.png" width="100%" /></p> 
+   <p id="pptit03" class="ptit03 animated tada infinite"><img src="images/12.png" width="100%" /></p> 
+   <p id="pptit04" class="ptit04"><img src="images/13.png" width="100%" /></p>
+   <div class="hint"> 
+    <img src="images/hint.png" /> 
+   </div> 
+  </section>
+  <section class="content" id="c1">
+  	<p class="p01" id="1">
+  		<img src="images/21.png" width="100%" />
+    	<img src="images/gold.png" width="13.8%" class="imgGold" />
+  	</p> 
+    <p class="p02" id="2"><img src="images/22.png" width="100%" /></p> 
+    <p class="p03 animated flash" id="3"><img src="images/23.png" width="100%" /></p> 
+    <p class="p04" id="4"><img src="images/24.png" width="100%" /></p> 
+    <div class="hint"> 
+    <img src="images/hint.png" /> 
+   </div>
+  </section> 
+   <section class="content" id="c2">
+    	<p class="p3_01"><img src="images/41.png" width="100%" /></p> 
+    	<p class="p3_02" id="2"><img src="images/42.png" width="100%" /></p> 
+    	<p class="p3_03"><img src="images/43.png" width="100%" class="imgDown" /></p> 
+	    <p class="p3_04">
+		    <img src="images/44.png" width="100%" class="animated fadeInDown" />
+	    </p> 
+	    <div class="hint"> 
+    <img src="images/hint.png" /> 
+   </div>
+  </section> 
+  <section class="content" id="c3"> 
+   	<p class="p2_01" id="1"><img src="images/31.png" width="100%" /></p> 
+    <p class="p2_02 animated infinite rubberBand" id="2"><img src="images/32.png" width="100%" /></p> 
+    <p class="p2_03 " id="3"><img src="images/33.png" width="100%" /></p> 
+    <p class="p2_04" id="4">
+	    <img src="images/35.png" width="100%" class="animated fadeInDown" />
+	    <img src="images/34.png" width="100%" class="animated fadeInDown" />
+	    <img src="images/36.png" width="100%" class="animated fadeInDown" />
+	    <img src="images/37.png" width="100%" class="animated fadeInDown" />
+	    <img src="images/38.png" width="100%" class="animated fadeInDown" />
+    </p> 
+    <div class="hint"> 
+    <img src="images/hint.png" /> 
+   </div>
+  </section> 
+  <section class="content" id="c4"> 
+   	<p class="p4_01"><img src="images/51.png" width="100%" /></p>
+   	<p class="p4_02"><img src="images/52.png" width="100%" /></p>
+   	<p class="p4_03"><img src="images/57.png" width="100%" /></p>
+   	<p class="p4_04"><img src="images/53.png" width="100%" /></p>
+   	<p class="p4_05"><img src="images/54.png" width="100%" /></p>
+   	<p class="p4_06"><img src="images/55.png" width="100%" /></p>
+   	<p class="p4_08"><img src="images/58.png" width="100%" /></p>
+   	<div class="hint"> 
+    <img src="images/hint.png" /> 
+   </div>
+  </section> 
+  <section class="content" id="c5">
+  	<p class="p5_01 animated bounceInRight"><img src="images/logo.png" width="100%" /></p>
+  	<p class="p5_02 animated bounceInLeft"><img src="images/610.png" width="100%" /></p>
+  	<p class="p5_03 animated tada infinite"><img src="images/62.png" width="100%" /></p>
+  	<p class="p5_04 animated tada infinite"><img src="images/63.png" width="100%" /></p>
+  	<p class="p5_06 animated zoomIn"><img src="images/66.png" width="100%" /></p>
+  	<p class="p5_05 animated"><img src="images/64.png" width="100%" /></p>
+  </section> 
+ </div> 
+</div> 
+<div class="bbTop"></div>
+<div class="bbBottom"></div>
+<audio id="player" autoplay="autoplay" loop="loop"></audio>
+<script>jQuery(function ($){
+			var filterClass = {
+				blur : "blur",
+				focus : "focus"
+			}
+			var $w = $(window),$body=$("body")
+				$loading = $("#loading"),
+				$wrap = $("#wrap"),
+				$scrollContent = $("#scrollContent"),
+				$content = $(".content");
+	
+			var contentLength = $content.size(),n=1;	
+			
+			function initPage(){
+				var wH = $body.height();
+				$wrap.css({
+					"height" : wH
+				});
+				$scrollContent.css({
+					"height" : wH
+				});
+				$content.css({
+					"height" : wH
+				});
+			}	
+
+			function resize(){
+				initPage();
+			}	
+			function windowLoad(){
+				$("#loading").css({display: "none"});
+       			setTimeout(function(){onTouch.filterClass('up');$('.bbTop,.bbBottom').show();},500);
+       			$('#player').attr({"loop":"loop","src":"images/music2.mp3"});
+       			$('#pptit02').addClass('animated flipInX');
+       			$('#pptit01').addClass('animated bounceInDown');
+			}
+			var onTouch = {
+				startY : 0,moveY:0,
+				current : 0,
+				onStart : function (e){
+					this.startY = e.pageY;
+					//document.body.scrollTop=0;
+					//event.preventDefault();
+				},
+				onMove : function (e){
+					//this.moveY=e.pageY;
+					//console.log(this.moveY)
+					event.preventDefault();
+					//document.body.scrollTop=0;
+				},
+				onEnd : function (e){
+					//event.preventDefault();
+					if($(e.target).hasClass('p_biao') || $(e.target).hasClass('p_biao2') || $(e.target).hasClass('productimg') || $(e.target).parent().hasClass('productimg')){
+					}
+					else if (this.startY > e.pageY+50 || e.target.className=='next') {
+						this.goDown();
+					}else if (this.startY < e.pageY-50) {
+						this.goUp();
+					}
+					//document.body.scrollTop=0;
+				},
+				goDown : function(){
+					this.contentScroll("down");
+				},
+				goUp : function(){
+					this.contentScroll("up");
+				},
+				contentScroll : function(flag){
+//					var top = parseInt($scrollContent.css("top"));
+					if (flag=="down" && this.current < contentLength-1) {
+						this.current+=1;
+						$content.removeClass('focus');
+						$content.eq(this.current).addClass('focus');
+						this.filterClass("down");
+					}else if (flag=="up" && this.current>0 ) {
+						this.current-=1;
+						$content.removeClass('focus');
+						$content.eq(this.current).addClass('focus');
+						this.filterClass("up");
+					};
+					if(this.current==1){
+						$('.p02,.p04').addClass('animated fadeInDown');
+					}
+					else{
+						$('.p02,.p04').removeClass('animated fadeInDown');
+					}
+					if(this.current==4){
+							$content.eq(this.current).find('p').addClass('animated fadeIn')
+						}
+						else{
+							$content.eq(4).find('p').removeClass('animated fadeIn')
+					}
+					if(this.current==1){
+						$('.p02,.p04').addClass('animated fadeInDown');
+					}
+					else{
+						$('.p02,.p04').removeClass('animated fadeInDown');
+					}
+					if(this.current==2){
+						$('.p2_01').addClass('animated flipInY');
+					}
+					else{
+						$('.p2_01').removeClass('animated flipInY');
+					}
+					if(this.current==3){
+						$('.p3_01').addClass('animated flipInY');
+					}
+					else{
+						$('.p3_01').removeClass('animated flipInY');
+					}
+					this.addClass();
+				},
+				getCurrentIndex : function(){
+					var top = parseInt($scrollContent.css("top")),
+						currentIndex = parseInt(top/$body.height());
+					return Math.abs(currentIndex);	
+				},
+				addClass : function(n){
+					var index = n||this.getCurrentIndex();
+				},
+				initAddClass : function(){
+					this.addClass(0);
+				},
+				filterClass : function(flag){
+					var index = this.current;
+					if (flag=="up" && index < contentLength-1) {
+						$("#c"+index).addClass(filterClass.focus);
+						$("#c"+(index+1)).removeClass(filterClass.focus);
+						
+						
+						
+					}else if (flag=="down" && index > 0) {
+						$("#c"+index).addClass(filterClass.focus);
+						$("#c"+(index-1)).removeClass(filterClass.focus);
+					};
+				}
+
+			};
+			initPage();
+		  window.onload = windowLoad;
+			window.onresize = resize;
+			//window.onscroll=function(){event.preventDefault()};
+			window.onorientationchange = resize;
+			document.body.addEventListener('touchstart', function (e) {
+				e = e.changedTouches[0];
+				onTouch.onStart(e);
+			});
+			document.body.addEventListener('touchmove', function (e) {
+				onTouch.onMove(e.changedTouches[0], e);
+			});
+			document.body.addEventListener('touchend', function (e) {
+				onTouch.onEnd(e.changedTouches[0]);
+			});
+			
+		});
+</script> 
+</body>
+</html>

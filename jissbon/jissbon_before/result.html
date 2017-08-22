@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>杰士邦——欧洲杯期间成都人的"啪"力报告！</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body>
+		<section class="page_result relative">
+			<div class="result dispBox hvCenter">
+				<img src="img/result/result_A.png" class="d_block" />
+				<img src="img/result/result_B.png" class="d_none" />
+				<img src="img/result/result_C.png" class="d_none" />
+				<img src="img/result/result_D.png" class="d_none" />
+				<img src="img/result/result_E.png" class="d_none" />
+				<img src="img/result/result_F.png" class="d_none" />
+			</div>
+			<div class="dispBox page_result_btns">
+				<div class="box-flex1">
+					<img src="img/result/btn_tell.png" width="80%" />
+				</div>
+				<div class="box-flex1">
+					<img src="img/result/btn_again.png" width="80%" />
+				</div>
+			</div>
+		</section>
+		<!-- share -->
+		<section class="page_result_share d_none"></section>
+		<section class="page_result_share_img d_none"><img src="img/result/result_share.png" width="100%" /></section>
+		
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var w = $(window).width(),
+					h = $(window).height(),
+					result = $('.result img'),
+					img_w = 0,
+					btns = $('.page_result_btns');
+				if (w == 320 && h == 480) {
+					btns_h = btns.outerHeight();
+				} else {
+					btns_h = btns.height();
+				}
+				img_w = (w * h * 0.9) / h;
+				result.width(img_w);
+				$('.result').height(h - btns_h);
+				console.log(btns_h);
+			}
+		</script>
+	</body>
+
+</html>

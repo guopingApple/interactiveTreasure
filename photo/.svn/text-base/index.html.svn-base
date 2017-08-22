@@ -1,0 +1,115 @@
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta charset="utf-8">
+<title>拍礼物啦</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/all-in-one.js"></script>
+</head>
+<body>
+<div style="display: none;"><img  src="share.png" /></div>
+	<div id="container" class="splash">
+		<canvas id="canvas"><span>Browser does not support the canvas.</span></canvas>
+		<div id="info"></div>
+	</div>
+	<div id="preload"></div>
+	<script src="js/shanku_loading.js"></script>
+	<script language=javascript>
+		var mebtnopenurl = 'http://mp.weixin.qq.com/s?__biz=MzAxMjE0OTM2NQ==&mid=201262835&idx=1&sn=92d28d28f5532db6e631a340f687adb1#rd';
+var thegameurl ="http://www.tx024.com/daliao/wendi/animalpic/"; 
+var guanzhuurl ="http://mp.weixin.qq.com/s?__biz=MzAxMjE0OTM2NQ==&mid=201262835&idx=1&sn=92d28d28f5532db6e631a340f687adb1#rd";
+		window.shareData = {
+		        "imgUrl": "http://www.tx024.com/daliao/wendi/animalpic/res/share-icon.jpg",
+		        "timeLineLink": thegameurl,
+		        "tTitle": "拍礼物啦",
+		        "tContent": "疯狂动物城没看过瘾？快来体验一下给疯狂的动物们拍照吧！"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			 if((window.location+"").indexOf("f=zf",1)>0){
+			 	window.location = mebtnopenurl;
+			  }
+			  else{
+			 	goHome();
+			  }
+		}
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div id=share style="display: none">
+			<img width=100% src="share.png"
+				style="position: fixed; z-index: 9999; top: 0; left: 0; display: "
+				ontouchstart="document.getElementById('share').style.display='none';" />
+		</div>
+		<div style="display: none;">
+			<script type="text/javascript">
+            var myData = { gameid: "animalpic" };
+			function dp_submitScore(score){
+				myData.score =parseInt(score*100);
+				myData.scoreName = "拍了"+score+"分";
+				document.title ="我拍礼物得了"+score+"分，你也来试试吧！";			
+				window.shareData.tTitle = document.title;
+				
+			}
+			
+			function onShareComplete(res) {
+                if (localStorage.myuid && myData.score != undefined) {
+                    setTimeout(function(){
+                        if (confirm("？")) {
+
+				}
+	        }
+			</script>
+			<div style="display: none;">
+				<script type="text/javascript" src="http://tajs.qq.com/stats?sId=36313548" charset="UTF-8"></script>
+			</div>
+                        <iframe src="http://ln.qq.com/tcenter/zt2016/ping001.htm" width=0 height=0 frameborder=0>
+</body>
+</html>

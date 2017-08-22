@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" /> <meta name="format-detection" content="telephone=no" /> <meta name="apple-mobile-web-app-status-bar-style" content="black" /> <meta content="yes" name=" apple-mobile-web-app-capable" /> 
+  		<meta http-equiv="pragma" content="no-cache" />
+		<title></title>
+		<style>
+			body,div,p{margin: 0;}
+			html{height: 100%;}
+			body{height:100%;background: url(img/1361/bgall.jpg) no-repeat center 0; background-size:auto 100%;}
+			a{color: #999;}
+			.boxnum{width:16%;height: 100%;overflow: hidden; float: left;margin-right: 1.2%;}
+			.numbg{width:100%;height: 1000000px;background: url(img/1361/5huan.png) center 0;background-size:293px 328px;-webkit-transform: translateY(0);}
+			.canclick{color: #000;}
+			.boxFive{margin: 0 auto;height: 200px;width: 90%; position: relative;padding: 0 5px;background: url(img/1361/bg1.png) no-repeat;background-size: 100% auto;}
+			.boxBorder{border-top: 3px solid #ef9100;border-bottom: 3px solid #ef9100;height: 24%;width: 84%;position: absolute;top: 38%;left: 8%;}
+			.start{background: url(img/1361/btn.png) no-repeat;height: 54px;width: 50%; background-size: contain;position: absolute;bottom: 10%;left: 25%;}
+			.stop{background: url(img/1361/stop.png) no-repeat;height: 54px;width: 50%; background-size: contain;position: absolute;bottom: 10%;left: 25%;}
+			.boxRule img{display: none;}
+			.rule{height: 100%;width: 100%;background: url(img/1361/bgall.jpg) no-repeat center;background-size: cover;z-index: 1000;}
+			.rule img{display:block;position: absolute;left: 10%;top: 20%;}
+			.boxRule{position: absolute;top: 0;left: 0;}
+			.btnRule{position: absolute;bottom: 10%;left:50%;margin-left:-30px;margin-bottom: -30px;text-align: center;line-height: 24px; width:60px;border-bottom:1px solid #666;font-size: 14px;color: #ef9100;}
+			.blankBg{display:none;background:rgba(0,0,0,.7);width: 100%;height: 100%;position: absolute;left: 0;top: 0;z-index: 200;}
+			.blankBg div{position: absolute;top: 10%;left: 4%;width: 92%;}
+			.okNum{position: absolute;z-index:1000;width: 100%;text-align: center;top: 57%;font-size: 20px;color: #ff0000;font-weight: 900;left: 0;display: block;}
+			.getRule{display:inline-block;text-align:center;border: 1px solid #ada88f;color:#fff7d3;line-height:40px;width: 50%; position: absolute;bottom: 5%;left: 25%;border-radius: 8px;z-index: 1000;}
+			.close{width: 50px;height: 50px;display: block;position: absolute;top: 9%;left: 80%;}
+			.numbg{-webkit-transform: translateY(0);-webkit-transition: -webkit-transform 0.1s linear 2s;}
+			@-webkit-keyframes nmoving{0%{-webkit-transform: translateY(0);}100%{-webkit-transform: translateY(-60000px);}}
+		</style>
+	</head>
+	<body>
+		<div class="blankBg"></div>
+		<div class="boxRule">
+			<img src="img/1361/rule.png" width="80%"  />
+		</div>
+		<div class="boxTit"><img src="img/1361/tit.jpg" width="100%" /></div>
+		<div class="boxFive">
+			<div class="boxBorder"></div>
+			<div class="boxnum" style="margin-left: 7.5%;">
+				<div class="numbg bg1" id="num1" style="-webkit-transform: translateY(0px);">
+				</div>
+			</div>
+			<div class="boxnum" style="margin-right: 2%;">
+				<div class="numbg bg2" style="-webkit-transform: translateY(0px);">
+				</div>
+			</div>
+			<div class="boxnum" style="margin-right: 1%;">
+				<div class="numbg bg3" style="-webkit-transform: translateY(0px);">
+				</div>
+			</div>
+			<div class="boxnum">
+				<div class="numbg bg4" style="-webkit-transform: translateY(0px);">
+				</div>
+			</div>
+			<div class="boxnum">
+				<div class="numbg bg5" style="-webkit-transform: translateY(0px);">
+				</div>
+			</div>
+		</div>
+		<a id="start" class="start canclick"></a>
+		<p class="p_get" style="display: none;">恭喜你中奖了</p>
+		<p class="btnRule">游戏规则</p>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script>
+			window.onload = function(){
+				var blankBg = $('.blankBg'),boxFive = $('.boxFive'),wW = $(window).width(),num = Math.ceil(458*wW/722);
+				boxFive.height(Math.ceil( num*47/100 )).css('padding',Math.ceil( num*27/100 )+'px 0 '+Math.ceil( num*26/100 )+'px 0');
+				var m = wW*9/3610;
+				var wFive =Math.ceil(m*300)-Math.ceil(m*300)%5,hFive =Math.ceil(m*355)-Math.ceil(m*355)%5;
+				for(var i=0;i<5;i++){
+					$('.bg'+(i+1)).css('background-position','0 '+(-i*hFive/5+(Math.ceil( num*47/100 )-hFive/5)/2)+'px')
+				}
+				var numbg = $('.numbg');
+				numbg.css('background-size',wFive+'px '+hFive+'px')
+				var start = $('#start'),stop = $('#stop'),timer1,timer2,timer3,timer4,timer5,numbg1 = $('body').find('.numbg'),num1;
+				var movingHeight = 1 , myObj={},$pget=$('.p_get');
+				//加速函数
+				var obj = document.querySelectorAll('.numbg');
+				var fnStart = function(a,dom,index,nrandom){
+					var vtime = 0;
+					start.removeClass('start');
+					timer1 = setTimeout(function(){
+						start.addClass('stop canclick');
+					},2000)
+				}
+				var goLength = 0, timeout = false,itime=0,vtime=0;
+				document.addEventListener('touchstart',function(e){
+					var e = e.touches[0];
+//					timer2 = setInterval(function(){goLength+=2*hFive;console.log('goLength:'+goLength);},1000);
+					 //启动及关闭按钮  
+					timeout = false;
+					function time()  
+					{  
+					  if(timeout) return;  
+					  goLength+=hFive;console.log('goLength:'+goLength); 
+					  itime+=1;
+					  vtime=itime/10;
+					  for(var i=0;i<5;i++){
+						obj[i].style.webkitTransform='translateY(-'+goLength+'px)';
+						obj[i].style.webkitTransition='-webkit-transform '+vtime+'s linear 0s';
+					}
+					  setTimeout(time,300); //time是指本身,延时递归调用自己,100为间隔调用时间,单位毫秒  
+					} 
+					
+					if($(e.target).hasClass('start') && $(e.target).hasClass('canclick')){
+						time();
+						e.target.className = 'start';
+						//ajax执行后 如果不够3次 就执行
+						fnStart();
+						//否则直接提示已经没机会了
+//						blankBg.show();
+//						blankBg.append('<div><img src="img/1361/no.png" width="100%" /></div><span class="close"></span>');
+					}
+					else if($(e.target).hasClass('stop') && $(e.target).hasClass('canclick')){
+						console.log('stop:'+goLength);
+						e.target.className ='stop';
+						timeout = true;
+						itime=0;
+						vtime=0;
+						console.log('stop2'+goLength);
+						//ajax返回成功后 开始执行下面的东西
+						var n= parseInt(Math.random()*5);//ajax产生的值决定是否中奖 n=4中奖
+						var count=3;
+						for(var i=0;i<5;i++){
+							obj[i].style.webkitTransition='-webkit-transform 2s linear 0s';
+							if(n!==4){
+							obj[i].style.webkitTransform='translateY('+(-hFive-i%2*hFive/5)+'px)';
+							}else{
+								obj[i].style.webkitTransform='translateY('+(-hFive)+'px)';
+							}
+						}
+						timer=setTimeout(function(){
+							goLength=0;
+							for(var i=0;i<5;i++){
+								obj[i].style.webkitTransform='translateY(0px)';
+								obj[i].style.webkitTransition='-webkit-transform 0s linear 0s';
+							}
+							start.removeClass('stop').addClass('start canclick');
+							if(n==4){
+								blankBg.show();
+								blankBg.empty().append('<div><img src="img/1361/ok.png" width="100%" /><span class="okNum"><p>123456789</p></span></div><a class="getRule">领奖规则</a><span class="close"><img src="img/1361/close.png" width="35" /></span>');
+								return;
+							}
+							if(count==3){
+								blankBg.show();
+								blankBg.empty().append('<div><img src="img/1361/no.png" width="100%" /></div><span class="close"><img src="img/1361/close.png" width="35" /></span>');
+							}
+							clearTimeout(timer);	
+							},3000)
+					}
+					else if($(e.target).hasClass('btnRule') || $(e.target).hasClass('boxRule') || $(e.target).parent().hasClass('boxRule')){
+						$('.boxRule').find('img').remove().end().toggleClass('rule').append('<img src="img/1361/rule.png" width="80%" />');
+					}
+					else if($(e.target).hasClass('getRule') || $(e.target).hasClass('boxRule') || $(e.target).parent().hasClass('boxRule')){
+						$('.boxRule').find('img').remove().end().toggleClass('rule').append('<img src="img/1361/getrule.png" width="80%" />');
+					}
+					else if($(e.target).parent().hasClass('close')){
+						blankBg.hide();
+						$('.start').addClass('canclick')
+					}
+				},false)
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <title>女人爱美丽之张天爱</title> <link rel="stylesheet" href="http://p0.ifengimg.com/common/reset_160525.css" /> <style>@charset "utf-8";
+/* CSS Document */
+.fl{ float:left;}
+.fr{ float:right;}
+.wy{ font-family:Microsoft YaHei;}
+img{ display:block;}
+body{ position:relative; width:100%; height:100%; overflow:hidden;}
+.big_box{ width:100%; position:absolute; left:0; top:0;}
+.first_box{ position:absolute; width:100%; background:url(http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/01.jpg) no-repeat top center; background-size:cover;}
+.second_box{ position:absolute; width:100%; background:url(http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/02.jpg) no-repeat  top center; background-size:cover;}
+.third_box{ position:absolute; width:100%; background:url(http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/03.jpg) no-repeat  top center; background-size:cover;}
+.fourth_box{ position:absolute; width:100%; background:url(http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/04.jpg) no-repeat  top center; background-size:cover;}
+.fifth_box{ position:absolute; width:100%; background:url(http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/05.jpg) no-repeat  top center; background-size:cover;}
+
+        .big_box img{cursor:pointer;}
+		.big_box img.cpr_pic{ width:39.8%; position:absolute; left:50%; margin-left:-19.9%; bottom:1.5%;}
+    	.big_box img.video-btn{ width:5%; position:absolute; left:50%; top:78%; cursor:pointer;}
+		.dan_01,.dan_02,.dan_03,.dan_04,.dan_05,.dan_06,.dan_07,.dan_08,.dan_09,.dan_10,.dan_11,.dan_12{ position:absolute; left:50%; display:none;}
+		.dan_01{ margin-left:8%; top:24.5%; width:24.5%;opacity:0; left:0;}
+		.dan_02{ margin-left:-8%; top:48.3%; width:50%;opacity:0; left:0;}
+		.dan_03{ margin-left:-5%; top:65.7%; width:33.5%;opacity:0; left:0;}
+		
+		.dan_04{ margin-left:-18.5%; top:27.3%; width:112px;}
+		.dan_05{ margin-left:-18.5%; top:46.5%; width:112px;}
+		.dan_06{ margin-left:-18.5%; top:65%; width:112px;}
+		
+		.dan_07{ margin-left:-28.8%; top:20.7%; width:8.4%;}
+		.dan_08{ margin-left:-18.4%; top:22.2%; width:8.4%;}
+		.dan_09{ margin-left:-10.6%; top:17.8%; width:10.1%;}
+		.dan_10{ margin-left:-28.6%; top:57.2%; width:10.9%;opacity:0; left:0;}
+		.dan_11{ margin-left:-17.6%; top:50.0%; width:9.3%;opacity:0; left:0;}
+		.dan_12{ margin-left:-7.5%; top:49.2%; width:9.6%;opacity:0; left:0;}
+		
+		.m-video { width: 800px; height: 480px; padding:10px; display: none; z-index: 99999; background:url(http://p2.ifengimg.com/l/2016/33/0a83b2dacfe4a23/vbg.png) repeat; position: fixed; left: 50%; margin-left: -400px; top: 50%; margin-top: -240px; }
+        .close-btn { position: absolute; right:-54px; top: 0px; width:50px; height:50px; background:url(http://p2.ifengimg.com/l/2016/33/0a83b2dacfe4a23/w_08.jpg) no-repeat;cursor: pointer; }
+		.dis-block{ display: inline-block !important; }
+		.xs_nr{ width:288px; height:310px; padding:30px 26px 0; background:url(http://p3.ifengimg.com/l/2016/33/0a83b2dacfe4a23/w_06.gif) no-repeat; display:none; position:absolute; left:90%; top:-20%;}
+		.border1{border: 1px solid #8a4d33;width: 290px;padding: 10px;height: 185px;}
+		.xs_nr_02{padding:10px;  background:rgba(255,255,255,0.8); display:none; position:absolute; left:90%; top:20%;}
+		
+		.xs_nr h2{ font-size:26px; line-height:36px; color:#2b2b2b; font-family:Microsoft Yahei; text-align:center;}
+					.xs_nr h3{ font-size:20px; color:#81cbb2; line-height:30px; padding-top:10px;font-family:Microsoft Yahei; text-align:center;}
+					.xs_nr_02 img{ display:block; width:130px; margin-right:10px;float: left;}
+					.xs_nr_02 .pdbox{padding: 0 5px;float: left;width: 140px;}
+					.p1{text-align: center;font: 12px/22px "microsoft yahei";border-bottom: 1px solid #d0d0d0;padding-bottom: 8px;}
+					.p2{color: #666;font: 12px/22px "microsoft yahei";padding-top: 10px;}
+		    .p_list{ width:995px; height:46px; position:fixed; left:50%;margin-left: -500px; bottom:1%;border: 3px solid #fff;border-right: 0;z-index: 100;}
+        .p_list ul li{ width:196px; height:46px;cursor:pointer;float: left;background: #860128;text-align: center;color: #fff;border-right: 3px solid #fff;line-height: 46px;font: 14px/46px "microsoft yahei";}
+			.p_list ul li.current{ color: #fec257;}
+		
+		
+.fadeInLong {
+	 display:block;
+  -webkit-animation: fadeIn 1s ease 0s 1 both;
+  -ms-animation: fadeIn 1s ease 0s 1 both;
+  -moz-animation: fadeIn 1s ease 0s 1 both;
+  -o-animation: fadeIn 1s ease 0s 1 both;
+   animation: fadeIn 1s ease 0s 1 both;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.zoomIn{
+	 display:block;
+	-webkit-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -ms-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -moz-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -o-animation: fadeInLeft 1s ease 0.5s 1 both;
+          animation: fadeInLeft 1s ease 0.5s 1 both;
+		  }
+/*zoomIn*/
+ @-webkit-keyframes zoomIn{
+	 0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}
+	 50%{opacity:1}
+	 }
+@keyframes zoomIn{
+	0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);-ms-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}
+	50%{opacity:1}
+	}
+		
+
+.fadeInLeft{
+	 display:block;
+	-webkit-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -ms-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -moz-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -o-animation: fadeInLeft 1s ease 0.5s 1 both;
+          animation: fadeInLeft 1s ease 0.5s 1 both;
+		  }
+
+/*fadeInLeft*/
+@-webkit-keyframes fadeInLeft{
+	0%{opacity:0;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}
+	100%{opacity:1;-webkit-transform:none;transform:none}
+	}
+	@keyframes fadeInLeft{
+		0%{opacity:0;-webkit-transform:translate3d(-100%,0,0);-ms-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}
+		100%{opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}
+		}
+
+.bounceInUp{
+	 display:block;
+	-webkit-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -ms-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -moz-animation: fadeInLeft 1s ease 0.5s 1 both;
+  -o-animation: fadeInLeft 1s ease 0.5s 1 both;
+          animation: fadeInLeft 1s ease 0.5s 1 both;
+		  }
+/*bounceInUp*/
+@-webkit-keyframes bounceInUp{
+	0%,100%,60%,75%,90%{-webkit-transition-timing-function:cubic-bezier(0.215,.61,.355,1);transition-timing-function:cubic-bezier(0.215,.61,.355,1)}
+	0%{opacity:0;-webkit-transform:translate3d(0,3000px,0);transform:translate3d(0,3000px,0)}
+	60%{opacity:1;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}
+	75%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}
+	90%{-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0)}
+	100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+	}
+	@keyframes bounceInUp{
+		0%,100%,60%,75%,90%{-webkit-transition-timing-function:cubic-bezier(0.215,.61,.355,1);transition-timing-function:cubic-bezier(0.215,.61,.355,1)}
+		0%{opacity:0;-webkit-transform:translate3d(0,3000px,0);-ms-transform:translate3d(0,3000px,0);transform:translate3d(0,3000px,0)}
+		60%{opacity:1;-webkit-transform:translate3d(0,-20px,0);-ms-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}
+		75%{-webkit-transform:translate3d(0,10px,0);-ms-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}
+		90%{-webkit-transform:translate3d(0,-5px,0);-ms-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0)}
+		100%{-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0); }
+		}
+		.txtbox{position: absolute;left: 110%;top: 0;width: 130px;}
+		.p_red{font: 16px/22px "microsoft yahei";color: #860128;}
+		.p_txt5{font: 12px/18px "microsoft yahei";color: #999;padding-bottom: 10px;}
+		.q_a_box{width: 300px;position: absolute;text-align: center;left: 50%;cursor: pointer;background: #fff;}
+		.q_a_box.current{background:#efefef}
+		.q_a_box img{width: 50%;margin: 0 auto;padding: 20px 0 15px;}
+		.p_q{font: 16px/26px "microsoft yahei";color: #860128;}
+		.p_a{font: 16px/26px "microsoft yahei";color: #e7ba04;}
+		.c_txt p{text-align: center;font-style: initial;}
+		.pp1{font:bold 16px/26px "microsoft yahei";}
+		.pp2{font:14px/26px "microsoft yahei";border-bottom: 1px solid #c38501;}
+		.pp3{font:12px/20px "microsoft yahei";padding-top: 12px;}
+		.pr{position: relative;}
+		.ani-img{position: absolute;}
+		.tabsbox{position: absolute;bottom:40px;left: 50%;margin-left: -425px;}
+		.c_txt{display: none;}
+		.c_img{position: absolute;height: 100%;background: #FEC257;opacity: 0;cursor: pointer;}</style> <script src="http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/jquery-1.8.3.min.js"></script> <script src="http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/jquery.mousewheel.js"></script> <script src="http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/fa.min.js"></script>
+ <script src="http://h0.ifengimg.com/20150625/fa.min.js"></script></head><body><script id="script_1473077366586_0" src="http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/page.js"></script> <div class="big_box" style="height: 621px; top: 0px;"> 
+ <div class="first_box" style="height: 621px;"> 
+  <p style="position: absolute;width:400px;left: 50%;margin-left:-170px;top: 60%;font: 12px/22px 'microsoft yahei';">她是大热网剧《太子妃升职记》中美艳的“天仙攻”张芃芃，霸气逼人的演技让她成为了网友们口中的“国民老公”。在之后的《我的朋友陈白露小姐》中也有着不俗的表现，这位当红的人气小花是少有的能把帅和美都表现完美的女艺人，时而率性洒脱时而妩媚动人的她就是本期《女人爱美丽》的主角张天爱。 </p> 
+  <img src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/play.png" class="video-btn" id="video-btn" /> 
+  <div class="m-video"> 
+   <div class="close-btn"></div> 
+   <!-- videoMain --> 
+   <div class="m-video-bd"> 
+    <!--视频容器--> 
+    <div id="playerDiv">
+     <embed id="fplay" src="http://vxml.ifengimg.com/swf/zuhe/zuhePlayer_v1.0.41.swf" width="800" height="480" name="fplay" allowfullscreen="true" wmode="transparent" allowscriptaccess="always" flashvars="AutoPlay=true&amp;adType=2&amp;guid=01bf3d51-719b-45f8-bf3c-d5f01fb0c236&amp;from=fashion&amp;forPlayNum=1&amp;ADURL=&amp;noRelatedPage=&amp;canShare=true&amp;subject=&amp;writeby=webjs&amp;width=800&amp;height=480&amp;postUrl=http://p2.ifengimg.com/a/2016/0510/demo.jpg&amp;ivbAdUrl=&amp;postAdUrl=&amp;pauseUrl=&amp;cornerAdUrl=&amp;ADOrderFirst=1&amp;special=true&amp;PlayerName=VZHPlayer&amp;uid=1415263372238_q4053j4980&amp;sid=&amp;locid=&amp;pageurl=http://fashion.ifeng.com/beauty/special/missbeautywzw/" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+    </div> 
+    <!--播放列表--> 
+    <div style="display:none;"> 
+     <h5>播放列表：</h5> 
+     <ul id="playitem"> 
+      <li name="01bf3d51-719b-45f8-bf3c-d5f01fb0c236" class="current"><a href="javascript:void(0);">【北京跨年】李雪健如何理解&quot;我们&quot;</a></li> 
+     </ul> 
+    </div> 
+    <script src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/citeswfobject.js"></script> 
+    <script src="http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/lianbo.js"></script> 
+    <script>var play = new PlayItems({
+						showDivId : 'playerDiv',        // 播放器容器id，默认值为 playerDiv ,可选，不传时使用//注销,其他参数同理    
+						parentIds :"playitem",          // 连播条目标签节点id，必选，如有多个列表逗号','分隔,如 'playitem1,playitem2'
+						swfWidth : '800',               // 播放器宽度，可选，默认值为 400
+						swfHeight :'480',               // 播放器高度，可选，默认值为 300
+						playitemcss : 'current',        // 条目播放时样式，可选，默认值为 current
+						autoPlay : 'true',              // 是否自动播放，可选，默认值为 true
+						firstAutoPlay : 'false',        // 第一条是否自动播放，只有autoPlay设置为 true时才生效，可选，默认值为 true
+						autoLoop : 'true',              // 列表是否循环播放，可选，默认值为 true
+						postUrl : 'http://p2.ifengimg.com/a/2016/0510/demo.jpg',     // 播放器预览图，可选，无默认值
+						subject : '',                   // 前贴片参数，可选，无默认值，只pc端生效
+						ADOrderFirst :'1',              // 147规则，可选，无默认值
+						index : 1,                      // 从第几条开始播放，0是第一条，可选，默认从0播放
+						playerCB : function(){}         // 条目切换时回调方法，可选
+					});
+					play.init();</script> 
+    <!--视频容器--> 
+   </div> 
+   <!-- //videoMain --> 
+  </div> 
+ </div> 
+ <div class="second_box" style="height: 621px; top: 667px;"> 
+  <div class="dialog dan_01" style="display: none; left: 0%; opacity: 0;"> 
+   <img src="http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/s01.png" data-type="http://p3.ifengimg.com/f060266fca481e2b/2016/36/s_h01.png" /> 
+  </div> 
+  <div class="dialog dan_02" style="display: none; left: 0%; opacity: 0;"> 
+   <img src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/s02.png" data-type="http://p2.ifengimg.com/f060266fca481e2b/2016/36/s_h02.png" /> 
+  </div> 
+  <div class="dialog dan_03" style="display: none; left: 0%; opacity: 0;"> 
+   <img src="http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/s03.png" data-type="http://p3.ifengimg.com/f060266fca481e2b/2016/36/s_h03.png" /> 
+  </div> 
+ </div> 
+ <div class="third_box" style="height: 621px; top: 1334px;"> 
+  <div style="width: 1000px;height:100%;position: relative;margin: 0 auto;"> 
+   <p style="padding: 10px;background: #000;width: 210px;font: 12px/18px 'microsoft yahei';color: #fff;position: absolute;left: 50%;top: 70%;margin-left:-44% ;">“因为拍摄地点在画室，是一个艺术氛围很强的地方，所以我把重点放在了底妆的打造上，想要呈现出妆感不是特别强，能够体现她完美肤质的底妆，所以眼睛和眉毛部分妆感很淡，我想能和现场的环境有融合。”</p> 
+   <div class="dialog dan_04" style="display: none;"> 
+    <div style="position: relative;"> 
+     <img src="http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/d04.png" width="100%" /> 
+     <div class="txtbox"> 
+      <p class="p_red">自然眼妆</p> 
+      <p class="p_txt5">“只画了内眼线，眼妆非常的清淡，基本就是一个淡淡的眼线和睫毛膏，没有多余的修饰，眼影基本上没有画。”</p> 
+     </div> 
+    </div> 
+    <div class="xs_nr_02"> 
+     <div class="border1"> 
+      <img src="http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/c1.jpg" /> 
+      <div class="pdbox"> 
+       <p class="p1">资生堂<br /> 心机彩妆星魅眼影<br /> 3g/320元</p>
+       <p class="p2">不经意的搖曳仿佛与生俱来般的深邃眼眸,憧憬拥有自然但令人印象深刻的双眸。</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="dialog dan_05" style="display: none;"> 
+    <div style="position: relative;"> 
+     <img src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/d05.png" width="100%" /> 
+     <div class="txtbox"> 
+      <p class="p_red">透亮底妆</p> 
+      <p class="p_txt5">“上妆前做面部提拉、敷面膜补水，粉底有两种，深色作为修容，浅色在T字区做提亮，让面部看起来更立体。”</p> 
+     </div> 
+    </div> 
+    <div class="xs_nr_02"> 
+     <div class="border1"> 
+      <img src="http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/c2.jpg" /> 
+      <div class="pdbox"> 
+       <p class="p1">羽西<br /> 灵芝生机水养裸妆轻垫霜<br /> 14g/260元</p> 
+       <p class="p2">气垫形态模拟蜂巢储蜜原理，随行补妆，控油补水，自然遮瑕，打造轻盈裸妆！</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="dialog dan_06" style="display: none;"> 
+    <div style="position: relative;"> 
+     <img src="http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/d06.png" width="100%" /> 
+     <div class="txtbox"> 
+      <p class="p_red">气质唇妆</p> 
+      <p class="p_txt5">“嘴唇的颜色只是稍微提了一下气色，选择了一款肉粉色的唇膏做提亮，看起来会更加的年轻、有活力。”</p> 
+     </div> 
+    </div> 
+    <div class="xs_nr_02"> 
+     <div class="border1"> 
+      <img src="http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/c3.jpg" /> 
+      <div class="pdbox"> 
+       <p class="p1">阿玛尼<br /> 臻致丝绒哑光唇釉<br /> 6.5ml/310元</p> 
+       <p class="p2">独特色彩饱和度，同时兼具致臻丝绒质地，让唇瓣彷彿穿上Giorgio Armani丝绒华服！！</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+ </div> 
+ <div class="fourth_box" style="height: 621px; top: 2001px;"> 
+  <img src="http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/04_02.jpg" data-type="images/04_03.jpg" class="ani-img" /> 
+  <img src="http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/04_03.jpg" data-type="images/04_04.jpg" class="ani-img" /> 
+  <img src="http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/04_04.jpg" data-type="images/04_02.jpg" class="ani-img" /> 
+  <div class="q_a_box qbox1"> 
+   <img src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/q1.jpg" data-type="http://p2.ifengimg.com/f060266fca481e2b/2016/36/a1.jpg" /> 
+   <p class="p_q">平时护肤的重点是什么？</p> 
+   <p class="p_a" style="display: none;">洁面和补水这是我比较在乎的，我清洁的比较勤，我一个星期要三次的做深层的去角质，因为我们经常化妆，油脂比较多一些，所以清洁是很重要的。</p> 
+  </div> 
+  <div class="q_a_box qbox2"> 
+   <img src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/q2.jpg" data-type="http://p2.ifengimg.com/f060266fca481e2b/2016/36/a2.jpg" /> 
+   <p class="p_q">熬夜拍戏怎样保持第二天的好气色？</p> 
+   <p class="p_a" style="display: none;">可能外部支撑的话，就是要迅速给肌肤补水，面膜我每天都会敷，然后在间休的时候能睡觉就睡一会补充体力。</p> 
+  </div> 
+  <div class="q_a_box qbox3"> 
+   <img src="http://p2.ifengimg.com/l/2016/36/4d44570495af1ab/q3.jpg" data-type="http://p2.ifengimg.com/f060266fca481e2b/2016/36/a3.jpg" /> 
+   <p class="p_q">平时运动的频率是多久？</p> 
+   <p class="p_a" style="display: none;">我没事就爱动，抽空就要运动一会儿，可能这会儿闲下来了，如果自己不累的话，就压压腿或者是跳一跳运动一下。</p> 
+  </div> 
+  <div class="q_a_box qbox4"> 
+   <img src="http://p3.ifengimg.com/l/2016/36/4d44570495af1ab/q4.jpg" data-type="http://p2.ifengimg.com/f060266fca481e2b/2016/36/a4.jpg" /> 
+   <p class="p_q">有特别的护发技巧吗？</p> 
+   <p class="p_a" style="display: none;">头发的话我觉得很重要，因为北京的天气特别干，头发要加倍的护理才可以，我把发膜替代了我的护发素，然后在吹头发的时候也要涂精油，这样能够保证头发的顺滑。</p> 
+  </div> 
+  <div class="q_a_box qbox5"> 
+   <img src="http://p0.ifengimg.com/l/2016/36/4d44570495af1ab/q5.jpg" data-type="http://p2.ifengimg.com/f060266fca481e2b/2016/36/a5.jpg" /> 
+   <p class="p_q">最喜欢的唇膏颜色是什么？</p> 
+   <p class="p_a" style="display: none;">我比较喜欢橘色系，因为我肤色的原因所以不太敢尝试粉色系的。</p> 
+  </div> 
+ </div> 
+ <div class="fifth_box" style="height: 621px; top: 2668px;"> 
+  <div style="width: 210px;height: 276px;position: absolute;right: 50px;bottom: 80px;background: url(http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/bg1.jpg);"> 
+   <p style="padding: 80px 30px 0;font: 12px/22px 'microsoft yahei';">出品人：孙莹、刘文 <br /> 监制：马晓清 <br /> 策划/编辑：张湘崎 <br /> 摄影：朴天一 <br /> 摄像：赵为、王少白<br /> 设计：榴莲君<br /> </p> 
+  </div> 
+  <div class="tabsbox"> 
+   <div class="pr"> 
+    <div class="c_img" style="width: 11%;left: 0;top: 0;"></div> 
+    <div class="c_img" style="width: 17%;left: 11%;top: 0;"></div> 
+    <div class="c_img" style="width: 6%;left: 28%;top: 0;"></div> 
+    <div class="c_img" style="width: 11%;left: 67%;top: 0;"></div> 
+    <div class="c_img" style="width: 11%;left: 78%;top: 0;"></div> 
+    <div class="c_img" style="width: 11%;left: 89%;top: 0;"></div>
+    <img src="http://p1.ifengimg.com/l/2016/36/4d44570495af1ab/5_1.png" width="100%" />
+   </div> 
+  </div> 
+  <div style="width: 290px;position: absolute;top: 44%;left: 50%;margin-left: -120px;" class="c_txt"> 
+   <p class="pp1">倩碧净透神水1.0号</p> 
+   <p class="pp2">200ml/155元</p> 
+   <p class="pp3">擦去老废死皮，唤醒净透光采肌，#Difference Maker# 0酒精，极致温和，温和去老废死皮，敏感肌适用死皮，不赖脸！棉片，不说谎！</p> 
+  </div> 
+  <div style="width: 290px;position: absolute;top: 44%;left: 50%;margin-left: -120px;" class="c_txt"> 
+   <p class="pp1">巴黎欧莱雅奇焕润发精油 (针对暗哑发质) </p> 
+   <p class="pp2">100ml/79元</p> 
+   <p class="pp3">蕴含法国玫瑰精粹油，致臻滋养，即刻柔缎般柔亮，持久萦绕细腻玫瑰香,
+提升秀发光泽度，深度滋养，赶走干涩，秀发顺滑，一梳到底。</p> 
+  </div> 
+  <div style="width: 290px;position: absolute;top: 44%;left: 50%;margin-left: -120px;" class="c_txt"> 
+   <p class="pp1">梦妆花心派对唇膏笔</p> 
+   <p class="pp2">3g/70元</p> 
+   <p class="pp3">自然照明下散发鲜艳、时尚光芒精致唇妆，霓虹灯下散发荧光色彩，华丽夺目。</p> 
+  </div> 
+  <div style="width: 290px;position: absolute;top: 44%;left: 50%;margin-left: -120px;" class="c_txt"> 
+   <p class="pp1">阿玛尼「光钥新肌」平衡乳</p> 
+   <p class="pp2">30ml/580元</p> 
+   <p class="pp3">吸收多余油脂，肌肤即获哑光妆效，整日持久。特有的乳状凝胶质地能快速吸收，每日肌肤洁净感受。</p> 
+  </div> 
+  <div style="width: 290px;position: absolute;top: 44%;left: 50%;margin-left: -120px;" class="c_txt"> 
+   <p class="pp1">薇诺娜舒敏保湿特护霜</p> 
+   <p class="pp2">50g/268元</p> 
+   <p class="pp3">高耐受精简配方，不添加香精、色素及致敏防腐剂，专为高敏感性肌肤设计。高原特有青刺果提取物与双分子透明质酸钠组成三重保湿网络，深入立体保湿，配合天然蘑菇葡聚糖、
+马齿苋提取精华，修护皮肤屏障，缓解肌肤受到的刺激。</p> 
+  </div> 
+  <div style="width: 290px;position: absolute;top: 44%;left: 50%;margin-left: -120px;" class="c_txt"> 
+   <p class="pp1">植村秀超模心机水感润泽霜</p> 
+   <p class="pp2">30ml/360元</p> 
+   <p class="pp3">天然珍珠粉末，莹润细腻，一抹瞬时提亮，肌肤沁现自然纯净光芒。柔滑质地，与肌肤完美贴合，轻松上妆。</p> 
+  </div> 
+ </div> 
+</div> <div class="p_list" id="p_list"> 
+ <ul id="p_list_ul"> 
+  <li class="current">封面</li> 
+  <li class="">she's bag</li> 
+  <li class="">妆容解析</li> 
+  <li class="">美肌秘笈</li> 
+  <li class="">编辑推荐</li> 
+ </ul> 
+</div> <script>jQuery(function($){
+			  var ww = window.innerWidth;
+			  var wh = window.innerHeight;
+			  var $animg = $('.ani-img'),$qabox=$('.q_a_box');
+			  $('.tabsbox').css({'width':parseInt(849*wh/986)+'px','margin-left':-parseInt(849*wh/986)/2+'px'})
+			  //1920*986
+			  var $ctxt = $('.c_txt');
+			  $ctxt.first().show();
+			  $('.c_img').each(function(i,ele){
+			  	$(this).on('mouseenter',function(){
+			  		$ctxt.hide().eq(i).show();
+			  	})
+			  })
+			  if(ww/wh > 1920/986){
+			  	//屏幕宽度够宽 宽度撑满
+			  	var imgw = 1920*wh/986;
+			  	$animg.attr({'width':ww*420/1920+'px','height':ww*420/1920+'px'});
+			  	$qabox.css({'width':ww*420/1920+'px','height':ww*420/1920+'px'});
+			  	$animg.each(function(){
+			  		var i= $(this).index();
+			  		if(i==0){$(this).css({'left':ww*122/1920+'px','top':0})}
+			  		if(i==1){$(this).css({'left':(ww*542/1920)+'px','top':ww*420/1920+'px'})}
+			  		if(i==2){$(this).css({'left':(ww*962/1920)+'px','top':0})}
+			  	})
+			  	$qabox.each(function(i,ele){
+			  		if(i==0){$(this).css({'left':ww*(122+420*(i%2+1))/1920+'px','top':0})}
+			  		if(i==1){$(this).css({'left':ww*(122+420*3)/1920+'px','top':0})}
+			  		if(i==2){$(this).css({'left':ww*122/1920+'px','top':ww*420/1920+'px'})}
+			  		if(i==3){$(this).css({'left':ww*(122+420*2)/1920+'px','top':ww*420/1920+'px'})}
+			  		if(i==4){$(this).css({'left':ww*(122+420*3)/1920+'px','top':ww*420/1920+'px'})}
+			  	})
+			  }else{
+			  	//屏幕高度高 以高度撑满
+			  	var imgh = 1920*wh/986;
+			  	if(ww>1300){
+			  		$('.ani-img').attr({'height':wh*420/986+'px','width':wh*420/986+'px'});
+			  		$qabox.css({'height':wh*420/986+'px','width':wh*420/986+'px'});
+			  		$animg.each(function(){
+			  		var i= $(this).index();
+			  		if(i==0){$(this).css({'left':ww/2+'px','top':0,'margin-left':-parseInt(wh*840/986)+'px'})}
+			  		if(i==1){$(this).css({'left':ww/2+'px','top':wh*420/986+'px','margin-left':-parseInt(wh*840/986-wh*420/986)+'px'})}
+			  		if(i==2){$(this).css({'left':ww/2+'px','top':0})}
+			  	})
+			  	$qabox.each(function(i,ele){
+			  		if(i==0 || i==1){$(this).css({'left':ww/2+'px','top':0,'margin-left':-parseInt(wh*(840-420*(i*2+1))/986)+'px'})}
+			  		if(i==2){$(this).css({'left':ww/2+'px','top':wh*420/986+'px','margin-left':-parseInt(wh*840/986)+'px'})}
+			  		if(i==3){$(this).css({'left':ww/2+'px','top':wh*420/986+'px','margin-left':-parseInt(wh*(840-420*2)/986)+'px'})}
+			  		if(i==4){$(this).css({'left':ww/2+'px','top':wh*420/986+'px','margin-left':-parseInt(wh*(840-420*3)/986)+'px'})}
+			  	})
+			  	}
+			  	else{
+			  		$('.ani-img').attr({'height':ww/4+'px','width':ww/4+'px'});
+			  		$qabox.css({'height':ww/4+'px','width':ww/4+'px'});
+			  		$animg.each(function(){
+			  		var i= $(this).index();
+			  		if(i==0){$(this).css({'left':'0','top':0})}
+			  		if(i==1){$(this).css({'left':ww/4+'px','top':ww/4+'px'})}
+			  		if(i==2){$(this).css({'left':ww/2+'px','top':0})}
+			  	})
+			  	$qabox.each(function(i,ele){
+			  		if(i==0 || i==1){$(this).css({'left':ww*(i*2+1)/4+'px','top':0})}
+			  		if(i==2){$(this).css({'left':0,'top':ww/4+'px'})}
+			  		if(i==3){$(this).css({'left':ww/2+'px','top':ww/4+'px'})}
+			  		if(i==4){$(this).css({'left':ww*3/4+'px','top':ww/4+'px'})}
+			  	})
+			  	}
+			  	
+			  }
+			  var inum=0;
+			  setInterval(function(){
+			  	inum = inum%3;
+			  	var arr1 = ['http://p2.ifengimg.com/f060266fca481e2b/2016/36/04_02.jpg','http://p2.ifengimg.com/f060266fca481e2b/2016/36/04_03.jpg','http://p2.ifengimg.com/f060266fca481e2b/2016/36/04_04h.jpg'];
+			  	var arr2 = ['http://p2.ifengimg.com/f060266fca481e2b/2016/36/04_03h.jpg','http://p2.ifengimg.com/f060266fca481e2b/2016/36/04_04.jpg','http://p2.ifengimg.com/f060266fca481e2b/2016/36/04_02h.jpg'];
+			  	for(var i=0;i<3;i++){
+			  		if(inum%2==0){
+			  		$animg.eq(i).attr('src',arr1[i]);
+			  		}else{$animg.eq(i).attr('src',arr2[i]);}
+			  	}
+			  	inum++;
+			  },1000)
+			   // dialog
+				$('.dialog').mouseenter(function (){
+					$(this).css("z-index",99)
+					$(this).find("div").addClass('dis-block');
+				}); 
+				$('.dialog').mouseleave(function (){
+					$(this).find("div").removeClass('dis-block');
+					$(this).css("z-index",98)
+				});
+				//问答
+				$('.q_a_box,.dialog').on('mouseenter mouseleave',function(e){
+						var img = $(this).find('img');
+						if($(this).hasClass('q_a_box')){$(this).find('p').toggle().end().toggleClass('current');}
+						if(!img.parents().hasClass('border1')){
+							var as = img.attr('data-type');
+							var oldsrc = img.attr('src');
+								img.attr('src',as);
+								img.attr('data-type',oldsrc);	
+						}
+						})
+				//video
+				$('.video-btn').click(function(event) {
+					$('.m-video').show('300');
+				});
+				$('.close-btn').click(function(event) {
+					document.getElementById("playitem").innerHTML="";
+					$('.m-video').hide('300');
+				});
+			  //大模块的定义（全屏翻）
+			  var sH=$(window).height();
+			  $(".first_box,.second_box,.third_box,.fourth_box,.fifth_box,.big_box").height(sH);
+			  $(".second_box").css("top",sH);
+			  $(".third_box").css("top",sH*2);
+			  $(".fourth_box").css("top",sH*3);
+			  $(".fifth_box").css({"top":(sH)*4});
+			  
+			  $(window).resize(function(){
+				  var sH=$(window).height();
+				  $(".first_box,.second_box,.third_box,.fourth_box,.fifth_box,.big_box").height(sH);
+			  })
+			  
+			  
+			   //点点随屏幕变
+			    var p_list_ul = document.getElementById("p_list_ul");
+				var p_list_li = p_list_ul.getElementsByTagName("li");
+				function dd_b(i){
+					 p_list_li[i].className = 'current';
+				     $(p_list_li[i]).siblings().removeClass('current');
+					}
+				 dd_b(0)
+				 
+					   
+//				   点击点点翻屏
+				$('#p_list_ul li').each(function(i){
+					 $(this).click(function(){
+						 dd_b(i);
+						 $(".big_box").stop().animate({top:-sH*i+'px'},800);
+			           });
+				  });
+				
+				
+			  $(".first_box").mousewheel(function (event){
+				  var sH=$(window).height();
+				  if (event.deltaY < 0){//如果deltaY是负值则是鼠标向下滚动
+					  $(".big_box").stop().animate({top:-sH+'px'},800);
+        	         setTimeout(function () { 
+						 $('.dan_01,.dan_02,.dan_03').fadeIn().animate({'left':50+'%','opacity':1});
+					}, 500);
+					 dd_b(1)
+					
+				  }else if (event.deltaY > 0){
+					  dd_b(0)
+				  }
+			  });
+			  //
+			  $(".second_box").mousewheel(function(event){
+				  var sH=$(window).height();
+				    setTimeout(function () { 
+						 $('.dan_01,.dan_02,.dan_03').fadeOut().animate({'left':0+'%','opacity':0});
+					}, 500);
+				   
+				  if (event.deltaY < 0){
+					  $(".big_box").stop().animate({top:-sH*2+'px'},800);
+					   setTimeout(function () { 
+						 $('.dan_04,.dan_05,.dan_06').fadeIn("slow");
+					}, 800);
+					dd_b(2)
+        	      
+				  }else if (event.deltaY > 0){
+					  $(".big_box").stop().animate({top:0+'px'},800);
+					  dd_b(0)
+				  }
+			  });
+			  //
+			  
+			  $(".third_box").mousewheel(function(event){
+				  var sH=$(window).height();
+				  setTimeout(function () { 
+						 $('.dan_04,.dan_05,.dan_06').fadeOut("slow");
+					}, 800);
+				  if (event.deltaY < 0){
+					  $(".big_box").stop().animate({top:-sH*3+'px'},800);
+					  dd_b(3)
+				  }else if (event.deltaY > 0){
+					  
+					  setTimeout(function () { 
+						 $('.dan_01,.dan_02,.dan_03').fadeIn().animate({'left':50+'%','opacity':1});
+					}, 500);
+					
+					  $(".big_box").stop().animate({top:-sH+'px'},800);
+					  dd_b(1)
+				  }
+			  });
+			  //
+			  $(".fourth_box").mousewheel(function(event){
+				  var sH=$(window).height();
+				  if (event.deltaY < 0){
+					  $(".big_box").stop().animate({top:-sH*4+'px'},800);
+					     setTimeout(function () { 
+						$('.dan_07,.dan_08,.dan_09').fadeIn("slow");
+					}, 800);
+					     setTimeout(function () { 
+						$('.dan_10,.dan_11,.dan_12').fadeIn("slow").animate({'left':50+'%','opacity':1});
+					}, 900);
+					dd_b(4)
+					
+				  }else if (event.deltaY > 0){
+					    setTimeout(function () { 
+						 $('.dan_04,.dan_05,.dan_06').fadeIn("slow");
+					}, 800);
+					  $(".big_box").stop().animate({top:-sH*2+'px'},800);
+					  dd_b(2)
+				  }
+			  });
+			  //
+			  var srT=0;
+			  $(".fifth_box").mousewheel(function(event){
+				  var sH=$(window).height();
+				  
+				  if (event.deltaY<0){
+				  }else if (event.deltaY>0){
+					  if($(this).scrollTop()==0){
+						  srT++;
+						  if(srT%10==0){
+							  $(".big_box").stop().animate({top:-sH*3+'px'},800);
+							   $('.dan_07,.dan_08,.dan_09,.dan_10,.dan_11,.dan_12').fadeOut("slow");
+							   dd_b(3)
+						  };
+					  };
+				  }
+			  });
+		  })</script> <script>var sta_collection_time = new Date().getTime();</script> <div id="sta_collection" style="bottom: 0px; left: 0px; position: absolute;">
+ <embed id="ifengSwf_1473077366502" name="ifengSwf_1473077366502" width="1" height="1" src="http://y1.ifengimg.com/20150127/flashCookieInterface.swf" type="application/x-shockwave-flash" allowscriptaccess="always" />
+</div> <script id="sta_collection_new">window.analytics(encodeURIComponent(window.location.href));
+         setTimeout(function(){
+             window.aptracker.collection();
+             window.remain();
+         },800);</script>
+<!-- 页尾通栏  -->
+<script> var sta_collection_time = new Date().getTime();</script>
+         <script id="sta_collection_new">
+         window.analytics(encodeURIComponent(window.location.href));
+         setTimeout(function(){
+             window.aptracker.collection();
+             window.remain();
+         },800);
+         </script><!-- 页尾通栏  --></body></html>

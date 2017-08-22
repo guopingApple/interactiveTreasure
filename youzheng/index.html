@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>和邮储银行携手做慈善！</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" />
+		<style>
+			body{margin: 0;}
+		</style>
+	</head>
+	<body>
+		<img src="300.jpg" style="position: absolute;left: -200%;top: -100%;" />
+		<canvas id="canvas"></canvas>
+	</body>
+	<script>
+//	iCanvas.beginPath();
+//	iCanvas.fillStyle = "#999";
+//	iCanvas.fillRect(0,0,200,100);
+//	iCanvas.closePath();
+//	iCanvas.globalCompositeOperation="destination-out";
+	//该属性表示的是图形的组合方式。我们要使用到的是destination-out，它表示只绘制原图形与新图形不重叠的部分；原图形与新图形重叠的部分变透明。
+//	function draw() {
+//	  var canvas = document.getElementById('myCanvas');
+//	  var ctx = canvas.getContext("2d");
+//	
+//	  var sin = Math.sin(Math.PI/6);
+//	  var cos = Math.cos(Math.PI/6);
+//	  ctx.save();
+//	  ctx.translate(200, 200);
+//	  var c = 0;
+//	  for (var i=0; i <= 12; i++) {
+//	    c = Math.floor(255 / 12 * i);
+//	    ctx.fillStyle = "rgb(" + c + "," + c + "," + c + ")";
+//	    ctx.fillRect(0, 0, 100, 10);
+//	    ctx.transform(cos, sin, -sin, cos, 0, 0);
+//	  }
+//	  ctx.setTransform(-1, 0, 0, 1, 200, 200);
+//	  ctx.fillStyle = "rgba(255, 128, 255, 0.5)";
+//	  ctx.fillRect(0, 0, 100, 100);
+//	}
+var wW = window.innerWidth,wH = window.innerHeight,num=0;//num表示当前页
+var ctx = document.getElementById('canvas').getContext('2d');
+document.getElementById('canvas').width = wW;
+document.getElementById('canvas').height = wH;
+var bgW = parseInt(320*wH/504);//背景图片的实际宽度
+var timer,i=1,j=0,m5=0,m6=0,y1=0,y2=0,y3=0,m11=0,m12=0,m13=0,m14=0,m15=0,m20=-10,aBoolen=true,aBoolen2=true,random1=[Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()];
+//计算宽高的函数
+function abcWH(x){
+	return parseInt(x*wW/320);
+}
+//动画函数
+var imgbg = new Image();imgbg.src = 'img/bg.jpg';
+var imgbg2 = new Image();imgbg2.src = 'img/PSBC_tit.png';
+var imgbg3 = new Image();imgbg3.src = 'img/kidHead.png';
+var imgbg4 = new Image();imgbg4.src = 'img/kidBody.png';
+var imgbg5 = new Image();imgbg5.src = 'img/kidMouth1.png';
+var imgbg6 = new Image();imgbg6.src = 'img/kidMouth2.png';
+var imgbg7 = new Image();imgbg7.src = 'img/kidBrowEye.png';
+var imgbg8 = new Image();imgbg8.src = 'img/kidArms.png';
+var imgbg9 = new Image();imgbg9.src = 'img/moveItem.png';
+var imgbg10 = new Image();imgbg10.src = 'img/PSBC_slogan.png';
+//页面2的图片
+var img2bg = new Image();img2bg.src = 'img2/bg.jpg';
+var img2bg2 = new Image();img2bg2.src = 'img2/greatTree.png';
+var img2bg3 = new Image();img2bg3.src = 'img2/grasses.png';
+var img2bg4 = new Image();img2bg4.src = 'img2/youngTrees.png';
+var img2bg5 = new Image();img2bg5.src = 'img2/clouds1.png';
+var img2bg6 = new Image();img2bg6.src = 'img2/slogan.png';
+var img2bg7 = new Image();img2bg7.src = 'img2/waterDrop.png';
+var img2bg8 = new Image();img2bg8.src = 'img2/flag.png';
+var img2bg9 = new Image();img2bg9.src = 'img2/activeCircle.png';
+var img2bg10 = new Image();img2bg10.src = 'img2/activeLine.png';
+var img2bg11 = new Image();img2bg11.src = 'img2/activeRoof.png';
+var img2bg12 = new Image();img2bg12.src = 'img2/activeTit.png';
+var img2bg13 = new Image();img2bg13.src = 'img2/paperAirplane.png';
+var img2bg14 = new Image();img2bg14.src = 'img2/leaf5.png';
+//页面3的图片
+var img3bg = new Image();img3bg.src = 'img3/bg.jpg';
+var img3bg2 = new Image();img3bg2.src = 'img3/activeTxt.png';
+var img3bg3 = new Image();img3bg3.src = 'img3/activePoint.png';
+var img3bg4 = new Image();img3bg4.src = 'img3/activeYuan.png';
+var img3bg5 = new Image();img3bg5.src = 'img3/activeDown.png';
+var img3bg52 = new Image();img3bg52.src = 'activeDown2.png';
+var img3bg6 = new Image();img3bg6.src = 'img3/kite.png';
+var img3bg7 = new Image();img3bg7.src = 'img3/grasses.png';
+var img3bg8 = new Image();img3bg8.src = 'img3/cloud1.png';
+var img3bg9 = new Image();img3bg9.src = 'img3/cloud2.png';
+var img3bg10 = new Image();img3bg10.src = 'img3/cloud3.png';
+var img3bg11 = new Image();img3bg11.src = 'img3/cloud8.png';
+var img3bg12 = new Image();img3bg12.src = 'img3/cloundc1.png';
+var img3bg13 = new Image();img3bg13.src = 'img3/cloundc2.png';
+//页面4的图片
+var img4bg = new Image();img4bg.src = 'img4/bg.jpg';
+var img4bg2 = new Image();img4bg2.src = 'img4/activeTxt.png';
+var img4bg3 = new Image();img4bg3.src = 'img4/aquatic.png';
+var img4bg4 = new Image();img4bg4.src = 'img4/seaLevel1.png';
+var img4bg5 = new Image();img4bg5.src = 'img4/seaLevel2.png';
+var img4bg6 = new Image();img4bg6.src = 'img4/seaLevel3.png';
+var img4bg7 = new Image();img4bg7.src = 'img4/whale.png';
+var img4bg8 = new Image();img4bg8.src = 'img4/water.png';
+var img4bg9 = new Image();img4bg9.src = 'img4/sun.png';
+var img4bg10 = new Image();img4bg10.src = 'img4/btn.png';
+var img4bg11 = new Image();img4bg11.src = 'img4/bubbles1.png';
+var img4bg12 = new Image();img4bg12.src = 'img4/cloud1.png';
+var img4bg13 = new Image();img4bg13.src = 'img4/cloud2.png';
+var logo = new Image();logo.src = 'logo.png';
+	function draw(){
+	  ctx.clearRect(0,0,wW,wH);
+	  if(num==0){
+		  ctx.drawImage(imgbg,(wW-bgW)/2,0,bgW,wH);
+		  ctx.drawImage(imgbg2,wW-abcWH(245),0,abcWH(245),abcWH(134));
+		  ctx.drawImage(imgbg4,0,abcWH(105),abcWH(203),abcWH(386));
+		  ctx.drawImage(imgbg10,abcWH(168),abcWH(203),abcWH(152),abcWH(85));
+		  ctx.restore();
+		  i++;
+		  //头部动画
+		  ctx.save();
+		  m5=parseInt(i/15);
+		  ctx.translate(0,abcWH(105)+abcWH(236)/2);
+		  ctx.rotate(m5%2*Math.PI/60)
+		  ctx.drawImage(imgbg3,-2,-abcWH(236)/2,abcWH(203),abcWH(236));
+		  ctx.restore();
+		  //嘴巴动画
+		  if(m5%2==0){
+		  	ctx.drawImage(imgbg5,0,abcWH(105),abcWH(203),abcWH(212));
+		  	ctx.drawImage(imgbg7,0,abcWH(105),abcWH(203),abcWH(119));
+		  	ctx.drawImage(imgbg8,0,abcWH(105)+3,abcWH(203),abcWH(223));
+		  	ctx.drawImage(imgbg9,0,abcWH(105),abcWH(203),abcWH(85));
+		  }
+		  else{
+		  	ctx.drawImage(imgbg6,0,abcWH(105),abcWH(203),abcWH(212));
+		  	ctx.drawImage(imgbg7,3,abcWH(105),abcWH(203),abcWH(119));
+		  	ctx.drawImage(imgbg8,0,abcWH(105),abcWH(203),abcWH(223));
+		  	ctx.drawImage(imgbg9,3,abcWH(105),abcWH(203),abcWH(85));
+		  }
+		  //down
+		  	ctx.save();
+		  	var m10 = i/2%50;//此处的数字变化越大动画越快
+		  	ctx.translate(wW/2,-m10/2);
+		  	ctx.drawImage(img3bg52,-abcWH(80),wH-abcWH(30),abcWH(160),abcWH(27));
+		  	ctx.restore();
+	  }
+	  else if(num==1){
+	  	i++;
+	  	ctx.drawImage(img2bg,(wW-bgW)/2,0,bgW,wH);
+	  	ctx.save();
+	  	ctx.drawImage(img2bg2,0,wH-abcWH(152),abcWH(320),abcWH(152));
+	  	ctx.drawImage(img2bg4,0,wH-abcWH(46),abcWH(320),abcWH(46));
+	  	//海草的动画
+	  	if(m20<10 && aBoolen2){m20 +=1/10;} 
+	  	if(m20>10){aBoolen2=false}
+	  	if(m20<-10){aBoolen2=true}
+	  	if(!aBoolen2){m20 -=1/5;}
+	  	ctx.save();
+	  	ctx.setTransform(1,0,-Math.sin(Math.PI/180*m20),Math.cos(Math.PI/180*m20),0,wH); 
+	  	ctx.drawImage(img2bg3,-abcWH(160),-abcWH(66),abcWH(320),abcWH(66));
+	  	ctx.drawImage(img2bg3,-abcWH(160)+wW,-abcWH(66),abcWH(320),abcWH(66));
+	  	ctx.restore();
+		//云的动画
+		ctx.save();
+		y1+=1;
+		ctx.translate(y1/10,0);
+		if(y1/10==wW){
+			y1 = 0;
+		}
+		ctx.drawImage(img2bg5,0,abcWH(88),abcWH(79),abcWH(41));
+		ctx.drawImage(img2bg5,-wW,abcWH(88),abcWH(79),abcWH(41));
+		ctx.scale(0.5,0.5);
+		ctx.drawImage(img2bg5,abcWH(320),abcWH(wH/2),abcWH(79),abcWH(41));
+		ctx.drawImage(img2bg5,-abcWH(320),abcWH(wH),abcWH(79),abcWH(41));
+		ctx.restore();
+		ctx.drawImage(img2bg6,0,abcWH(wH/2),abcWH(320),abcWH(36));
+		//下雨的动画
+		y2 = y2>=wH ? 0 : y2+5;
+		if(y2%wH==0){random1 = [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]} 
+		ctx.save();
+		ctx.globalAlpha = 1-y2/wH;
+			for(var ii=0;ii<20;ii++){
+				ctx.save();
+				ctx.translate(0,y2*random1[ii]);
+				ctx.globalAlpha = random1[ii];
+				ctx.scale(random1[ii],random1[ii]);
+				ctx.drawImage(img2bg7,ii*wW/10,-20*random1[ii],abcWH(8),abcWH(11));
+				ctx.drawImage(img2bg7,ii*wW/10,wH/2,abcWH(8),abcWH(11));
+				ctx.drawImage(img2bg7,ii*wW/10,-20*random1[ii]-wH,abcWH(8),abcWH(11));
+				ctx.restore();
+			}
+		ctx.restore();
+		//你我同行
+		ctx.save();
+	  	ctx.translate(abcWH(80),abcWH(325));
+	  	ctx.scale(1+m11/2000,1+m11/2000);
+	  	if(aBoolen){m11 += 1;}
+	  	else{m11-=1}
+	  	if(m11>100){aBoolen=false}
+	  	if(m11<0){aBoolen=true}
+	  	ctx.rotate(Math.PI/180*(m11/100))
+	  	ctx.drawImage(img2bg8,0,-abcWH(120),abcWH(148),abcWH(51));
+	  	ctx.restore();
+		ctx.drawImage(img2bg9,abcWH(63),abcWH(125),abcWH(220),abcWH(125));
+		ctx.drawImage(img2bg10,abcWH(63),abcWH(18),abcWH(220),abcWH(231));
+		ctx.drawImage(img2bg11,abcWH(63),abcWH(38),abcWH(220),abcWH(41));
+		ctx.save();
+		ctx.translate(wW/2,0);
+		ctx.scale(Math.sin(Math.PI/180*(45+(m11/3)%45)),1);
+		ctx.drawImage(img2bg12,-abcWH(100),abcWH(20),abcWH(220),abcWH(231));//护苗行动
+		ctx.restore();
+		ctx.save();//纸飞机
+		ctx.translate(wW,wH/2);
+		ctx.rotate(Math.PI/180*i);
+		ctx.drawImage(img2bg13,-wW/4,-wW/4,abcWH(33),abcWH(30));
+		ctx.restore();
+		ctx.save();
+		ctx.translate(20,wH/2);
+		ctx.rotate(Math.PI/360*i);
+		ctx.scale(0.6,0.6);
+		ctx.drawImage(img2bg13,-wW/4,-wW/4,abcWH(33),abcWH(30));
+		ctx.restore();
+		//树叶动画
+		ctx.save();
+		y3++;
+		ctx.translate(0,abcWH(450));
+		if(y3>abcWH(220)){y3=0}
+		ctx.globalAlpha = 1 - y3/abcWH(220);
+		ctx.fillStyle = '#2adb7c';  
+			for(var ix=0;ix<10;ix++){
+				ctx.save();
+				var x=random1[ix]
+				ctx.globalAlpha = x;
+				
+//				ctx.scale(x,x);
+				ctx.drawImage(img2bg14,abcWH(125)+abcWH(8)*ix,y3*x,abcWH(4),abcWH(5));
+				ctx.fill();
+				ctx.restore();
+			}
+		ctx.restore();
+		//down
+		  	ctx.save();
+		  	var m10 = i/2%50;//此处的数字变化越大动画越快
+		  	ctx.translate(wW/2,-m10/2);
+		  	ctx.drawImage(img3bg52,-abcWH(80),wH-abcWH(30),abcWH(160),abcWH(27));
+		  	ctx.restore();
+	  }
+	  else if(num == 2){//第三页
+	  	i++;
+	  	ctx.drawImage(img3bg,(wW-bgW)/2,0,bgW,wH);
+	  	//风筝
+	  	ctx.save();
+	  	ctx.translate(0,abcWH(135));
+	  	ctx.scale(1+m11/2000,1+m11/2000);
+	  	if(aBoolen){m11 += 1;}
+	  	else{m11-=1}
+	  	if(m11>100){aBoolen=false}
+	  	if(m11<0){aBoolen=true}
+	  	ctx.rotate(Math.PI/180*(m11/100))
+	  	ctx.drawImage(img3bg6,0,-abcWH(120),abcWH(320),abcWH(415));
+	  	ctx.restore();
+	  	//
+	  	ctx.drawImage(img3bg13,wW/2-abcWH(73),abcWH(100),abcWH(146),abcWH(63));
+	  	ctx.drawImage(img3bg2,0,abcWH(80),wW,abcWH(360));
+	  	//心跳
+	  	ctx.save();
+	  	ctx.translate(wW/2,abcWH(275));
+	  	var m8 = i%100;
+	  	ctx.scale(1+m8/1000,1+m8/1000);
+	  	ctx.drawImage(img3bg3,-wW/2,-abcWH(15),abcWH(320),abcWH(31));
+	  	ctx.drawImage(img3bg4,-wW/2,abcWH(20),abcWH(320),abcWH(28));
+	  	ctx.restore();
+	  	//down
+	  	ctx.save();
+	  	var m10 = i%100;//此处的数字变化越大动画越快
+	  	ctx.translate(0,m10/2);
+	  	ctx.drawImage(img3bg5,0,abcWH(400),abcWH(320),abcWH(54));
+	  	ctx.restore();
+	  	//海草的动画
+	  	ctx.save();
+	  	ctx.setTransform(1,0,-Math.sin(Math.PI/180*m11/3),Math.cos(Math.PI/180*m11/3),0,wH); 
+	  	ctx.drawImage(img3bg7,-abcWH(160),-abcWH(66),abcWH(320),abcWH(66));
+	  	ctx.drawImage(img3bg7,-abcWH(160)+wW,-abcWH(66),abcWH(320),abcWH(66));
+	  	ctx.restore();
+	  	//云的动画
+	  	ctx.save();
+	  	m13+=1/10;
+	  	var mm13 = m13%wW;
+	  	ctx.translate(mm13,0)
+	  	ctx.drawImage(img3bg8,wW-30,abcWH(40),abcWH(40),abcWH(20));
+	  	ctx.drawImage(img3bg8,-30,abcWH(120),abcWH(40),abcWH(20));
+	  	ctx.drawImage(img3bg9,wW/2,abcWH(60),abcWH(50),abcWH(20));
+	  	ctx.drawImage(img3bg9,-wW/2,abcWH(60),abcWH(50),abcWH(20));
+	  	ctx.drawImage(img3bg12,-5,abcWH(60),abcWH(65),abcWH(41));
+	  	ctx.drawImage(img3bg12,-5-wW,abcWH(60),abcWH(65),abcWH(41));
+	  	ctx.restore();
+	  }
+	  else if(num==3){
+	  	i++;
+	  	ctx.drawImage(img4bg,(wW-bgW)/2,0,bgW,wH);
+	  	ctx.drawImage(img4bg2,abcWH(25),abcWH(108),abcWH(270),abcWH(200));
+	  	ctx.drawImage(logo,wW/2-abcWH(88),abcWH(45),abcWH(176),abcWH(60));
+	  	//云的动画
+		ctx.save();
+		y1+=1;
+		ctx.translate(y1/10,0);
+		if(y1/10==wW){
+			y1 = 0;
+		}
+		ctx.drawImage(img2bg5,0,abcWH(88),abcWH(79),abcWH(41));
+		ctx.drawImage(img2bg5,-wW,abcWH(150),abcWH(79),abcWH(41));
+		ctx.drawImage(img4bg12,abcWH(30),30,abcWH(60),abcWH(26));
+		ctx.drawImage(img4bg12,-abcWH(290),30,abcWH(60),abcWH(26));
+		ctx.drawImage(img4bg13,abcWH(290),30,abcWH(36),abcWH(14));
+		ctx.drawImage(img4bg13,-abcWH(30),30,abcWH(36),abcWH(14));
+		ctx.scale(0.5,0.5);
+		ctx.drawImage(img2bg5,abcWH(320),abcWH(wH/2),abcWH(79),abcWH(41));
+		ctx.drawImage(img2bg5,-abcWH(320),abcWH(3*wH/2),abcWH(79),abcWH(41));
+		
+		ctx.restore();
+	  	//太阳
+	  	ctx.save();
+	  	ctx.translate(abcWH(260),abcWH(30));
+	  	ctx.rotate(Math.PI/180*i/10)
+	  	ctx.drawImage(img4bg9,0,-abcWH(24),abcWH(48),abcWH(48));
+	  	ctx.restore();
+	  	//鲸鱼的动画
+	  	if(aBoolen){m11 += 1/3;}
+	  	else{m11-=1/2}
+	  	if(m11>50){aBoolen=false}
+	  	if(m11<0){aBoolen=true}
+	  	ctx.save();
+	  	ctx.drawImage(img4bg7,wW/2-abcWH(51),wH-abcWH(150+m11),abcWH(102),abcWH(61));
+	  	ctx.globalAlpha = 0;
+	  	if(!aBoolen &&m11<20){ctx.globalAlpha = 1-m11/50;}
+	  	ctx.drawImage(img4bg8,0,wH-abcWH(180+m11),abcWH(320),abcWH(80));
+	  	ctx.restore();
+	  	//海水的动画
+	  	m14=i%wW;
+	  	ctx.save();
+	  	ctx.translate(m14,0)
+	  	ctx.drawImage(img4bg6,abcWH(-20),wH-abcWH(152),abcWH(359),abcWH(25));
+	  	ctx.drawImage(img4bg5,abcWH(-20),wH-abcWH(152),abcWH(359),abcWH(25));
+	  	ctx.drawImage(img4bg4,abcWH(-20),wH-abcWH(150),abcWH(359),abcWH(150));
+	  	ctx.drawImage(img4bg6,abcWH(-20)-wW,wH-abcWH(152),abcWH(359),abcWH(25));
+	  	ctx.drawImage(img4bg5,abcWH(-20)-wW,wH-abcWH(152),abcWH(359),abcWH(25));
+	  	ctx.drawImage(img4bg4,abcWH(-20)-wW,wH-abcWH(150),abcWH(359),abcWH(150));
+	  	ctx.restore();
+	  	//lets go
+	  	ctx.save();
+	  	ctx.drawImage(img4bg10,wW/2-abcWH(60),wH-abcWH(90),abcWH(118),abcWH(40));
+	  	ctx.restore();
+	  	//海草的动画
+	  	ctx.save();
+	  	ctx.setTransform(1,0,-Math.sin(Math.PI/180*m11/2),Math.cos(Math.PI/180*m11/2),0,wH); 
+	  	ctx.drawImage(img4bg3,-abcWH(160),-abcWH(66),abcWH(320),abcWH(66));
+	  	ctx.drawImage(img4bg3,-abcWH(160)+wW,-abcWH(66),abcWH(320),abcWH(66));
+	  	ctx.restore();
+	  	//气泡动画
+	  	for(var ib = 0;ib<20;ib++){
+	  		ctx.save();
+	  		var random = random1[ib];
+	  		ctx.translate(wW*ib/20,wH-50*random);
+	  		ctx.scale(1+i%80/80,1+i%80/80
+	  		);
+			ctx.globalAlpha =1- i%80/80;
+			ctx.drawImage(img4bg11,i%2,-i%80*random,abcWH(10*random),abcWH(10*random));
+	  		ctx.restore();
+	  	}
+	  }
+	 timer = window.requestAnimationFrame(draw);
+	}
+	draw();
+	var startY,endY,endX;
+	document.addEventListener('touchstart',function(e){
+		var e = e.touches[0];
+		startY = e.pageY;
+		//window.cancelAnimationFrame(timer);
+		
+	},false);
+	document.addEventListener('touchmove',function(e){
+		var e = e.touches[0];
+		event.preventDefault();
+	},false);
+	document.addEventListener('touchend',function(e){
+		var e = e.changedTouches[0];
+		endY = e.pageY;
+		endX = e.pageX;
+		if(num==3 && endY>wH-abcWH(90) && endY<wH-abcWH(60) && endX>wW/2-abcWH(50) && endX < wW/2+abcWH(50)){
+			//console.log(endY);跳转链接
+		}
+		i=0;
+		if(startY-10>endY){
+			if(num<=2){
+				num+=1;
+			}
+		}
+		else if(endY-10>startY){
+			num-=1;
+			if(num<0){num=0}
+		}
+	},false)
+	
+</script>
+</html>
